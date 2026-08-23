@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floricultura | Secret Garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/desenvolvimento-web-fatec/projeto-loja-virtual/index.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        cursive: ['"Dancing Script"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <header id="main-header"
+        class="top-0 left-0 w-full flex flex-col items-center gap-4 py-4 z-50 bg-transparent backdrop-blur-md shadow-2xl transition-all duration-300 fixed">
+        <div class="text-center">
+            <h1 class="text-gray-900 text-3xl font-light tracking-wide">
+                Secret
+                <a href="#home"
+                    class="font-cursive font-bold text-pink-600 text-4xl hover:text-pink-800 transition-colors duration-300 relative top-1 cursor-pointer">
+                    Garden
+                </a>
+            </h1>
+        </div>
+
+        <nav class="hidden sm:block">
+            <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase text-gray-700">
+                <li><a href="/desenvolvimento-web-fatec/projeto-loja-virtual/index.html"
+                        class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
+                <li><a href="/desenvolvimento-web-fatec/projeto-loja-virtual/catalogo.html"
+                        class="text-pink-600 transition-colors duration-300">Catálogo</a></li>
+                <li><a href="/desenvolvimento-web-fatec/projeto-loja-virtual/index.html" class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
+                <li><a href="/desenvolvimento-web-fatec/projeto-loja-virtual/index.html" class="hover:text-pink-600 transition-colors duration-300">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3]/50 to-white py-16 md:py-40">
+        <div class="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl"></div>
+        <div class="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-rose-200/30 blur-3xl">
+        </div>
+
+        <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <span
+                class="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-[#E55B69] shadow-sm backdrop-blur-md border border-pink-100">
+                <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Curadoria Exclusiva
+            </span>
+            <h1 class="mt-4 text-4xl font-black tracking-tight text-pink-950 sm:text-5xl md:text-6xl">
+                Secret <span
+                    class="inline-block text-pink-600 font-cursive transition-all duration-300 hover:scale-105 hover:drop-shadow-lg">
+                    Garden
+                </span> & Coleções
+            </h1>
+            <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-pink-900/80 md:text-base">
+                Arranjos botânicos desenhados à mão, cultivados de forma sustentável e entregues com o frescor da manhã
+                direto na sua porta.
+            </p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-2">
+                <button
+                    class="rounded-full bg-[#E5386B] px-5 py-2 text-xs font-semibold text-white shadow-md shadow-pink-500/20 transition-all hover:bg-[#C92A5A]">
+                    Todos (24)
+                </button>
+                <button
+                    class="rounded-full border border-pink-200/80 bg-white/80 px-5 py-2 text-xs font-semibold text-gray-700 shadow-sm transition-all hover:border-[#E5386B] hover:text-[#E5386B] hover:shadow-md">
+                    Buquês Nobres
+                </button>
+                <button
+                    class="rounded-full border border-pink-200/80 bg-white/80 px-5 py-2 text-xs font-semibold text-gray-700 shadow-sm transition-all hover:border-[#E5386B] hover:text-[#E5386B] hover:shadow-md">
+                    Vasos & Plantas
+                </button>
+                <button
+                    class="rounded-full border border-pink-200/80 bg-white/80 px-5 py-2 text-xs font-semibold text-gray-700 shadow-sm transition-all hover:border-[#E5386B] hover:text-[#E5386B] hover:shadow-md">
+                    Edição Especial
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>

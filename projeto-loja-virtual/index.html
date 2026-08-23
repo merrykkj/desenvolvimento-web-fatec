@@ -12,6 +12,8 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/desenvolvimento-web-fatec/projeto-loja-virtual/index.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
 
     <script>
         tailwind.config = {
@@ -28,7 +30,7 @@
     </script>
 </head>
 
-<body>
+<body class=" bg-gradient-to-r from-pink-300/10 via-white/50 to-white">
     <header id="main-header"
         class="top-0 left-0 w-full flex flex-col items-center gap-4 py-4 z-50 bg-transparent backdrop-blur-md shadow-2xl transition-all duration-300 fixed">
         <div class="text-center">
@@ -44,7 +46,7 @@
         <nav class="hidden sm:block">
             <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase text-gray-700">
                 <li><a href="#home" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
-                <li><a href="#catalogo" class="hover:text-pink-600 transition-colors duration-300">Catálogo</a></li>
+                <li><a href="/desenvolvimento-web-fatec/projeto-loja-virtual/catalogo.html" class="hover:text-pink-600 transition-colors duration-300">Catálogo</a></li>
                 <li><a href="#sobre" class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
                 <li><a href="#contato" class="hover:text-pink-600 transition-colors duration-300">Contato</a></li>
             </ul>
@@ -57,11 +59,11 @@
         </div>
         <div class="relative z-10 max-w-xl text-left">
             <h2 class="text-4xl md:text-6xl font-serif font-bold text-pink-950 uppercase tracking-tight leading-tight">
-                Fresh <br>Flowers
+                PURA <br>ESSÊNCIA
             </h2>
 
             <span class="text-sm md:text-base font-medium text-pink-600 block mt-2 tracking-widest uppercase">
-                Natural & Beautiful Flowers
+                Flores frescas que transformam momentos
             </span>
 
             <p class="py-4 text-gray-700 leading-relaxed font-serif text-sm md:text-base">
@@ -79,7 +81,7 @@
     <div class="flex flex-wrap py-20 justify-center gap-8">
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
                 <img src="./src/img/images/c1.png" alt="Annual Flower" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">Annual Flower</span>
@@ -87,7 +89,7 @@
 
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
                 <img src="./src/img/images/c2.png" alt="Perennial Flower" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">Perennial Flower</span>
@@ -95,7 +97,7 @@
 
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
                 <img src="./src/img/images/c3.png" alt="Biennial Flower" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">Biennial Flower</span>
@@ -103,7 +105,7 @@
 
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
                 <img src="./src/img/images/c4.png" alt="Rose Flower" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">Rose Flower</span>
@@ -111,7 +113,7 @@
 
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
                 <img src="./src/img/images/c5.png" alt="SunFlower" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">SunFlower</span>
@@ -119,7 +121,7 @@
 
         <div class="flex flex-col items-center cursor-pointer group">
             <div
-                class="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105">
+                class="w-24 h-24 bg-pink-50 border boder-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300 ">
                 <img src="./src/img/images/c6.png" alt="Hydrangea" class="w-12 h-12 object-contain" />
             </div>
             <span class="mt-3 text-sm font-bold text-gray-800">Hydrangea</span>
@@ -127,9 +129,34 @@
 
     </div>
 
+    <div class="mx-auto px-10 md:pb-20 md:px-0">
+    <div class="mx-auto flex w-full max-w-4xl flex-col items-center justify-between gap-6 rounded-3xl bg-[#FFF0F3] px-6 py-8 md:shadow-2xl md:flex-row md:px-10 md:py-8">
+        <div class="w-full max-w-none flex-1 text-center md:max-w-sm md:text-left">
+            <span class="mb-1 block text-[11px] font-bold uppercase tracking-[0.3em] text-[#E55B69] md:text-xs">
+                COLLECTION
+            </span>
+
+            <h2 class="mb-2 text-xl font-extrabold leading-snug tracking-tight text-gray-900 md:text-2xl">
+                Beautiful Flower Pot
+            </h2>
+
+            <p class="mb-4 text-xs leading-relaxed text-gray-600 md:text-sm">
+                Flores selecionadas e vasos suspensos exclusivos para trazer elegância, cor e vida para o seu ambiente.
+            </p>
+
+            <a href="#" class="inline-block rounded-lg bg-[#E5386B] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-transform duration-100 hover:scale-105 hover:bg-[#C92A5A]">
+                Shop Now
+            </a>
+        </div>
+
+        <div class="hidden sm:flex w-full items-center justify-center md:w-auto">
+            <img src="./src/img/images/shoes-bag.png" alt="Beautiful Flower Pot" class="h-auto w-44 object-contain drop-shadow-md md:w-56" />
+        </div>
+    </div>
+</div>
     <section id="catalogo" class="w-full max-w-6xl mx-auto px-4 py-12">
 
-        <h2 class="text-2xl font-bold text-gray-800 text-left mb-8">
+        <h2 class="text-2xl font-bold tracking-wide uppercase text-gray-800 text-center mb-8 md:text-left">
             Flores Populares
         </h2>
 
@@ -140,7 +167,7 @@
 
             <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                 data-title="Gerânio (Pelargônio)"
-                data-desc="Uma das flores de vaso mais clássicas e resistentes. Ideal para varandas, janelas e jardins bem iluminados. Oferece floração generosa e contínua."
+                data-desc=" Uma das plantas mais tradicionais para floreiras e canteiros ensolarados. Suas pequenas e vibrantes flores vermelhas se reúnem em lindos mini-buquês arredondados, contrastando perfeitamente com sua folhagem ornamental de aroma característico."
                 data-price="89,90" data-img="./src/img/images/p1.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p1.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
@@ -152,8 +179,9 @@
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Floricultura Bloom</p>
                     <h3 class="text-lg font-bold text-gray-800 mt-1">Gerânio (Pelargônio)</h3>
-                    <p class="text-gray-500 text-xs mt-2">Uma das flores de vaso mais clássicas e resistentes. Ideal
-                        para varandas, janelas e jardins bem iluminados. Oferece floração generosa e contínua.
+                    <p class="text-gray-500 text-xs mt-2"> Uma das plantas mais tradicionais para floreiras e canteiros
+                        ensolarados. Suas pequenas e vibrantes flores vermelhas se reúnem em lindos mini-buquês
+                        arredondados, contrastando perfeitamente com sua folhagem ornamental de aroma característico.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -168,9 +196,10 @@
 
             <!-- Card 2 -->
             <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                data-title="Prímula (Primula vulgaris)" data-desc="O símbolo do início da primavera! Com cores vivas e textura
-                        aveludada, é perfeita para decorar mesas, parapeitos de janela ou formar maciços em locais de
-                        meia-sombra." data-price="119,90" data-img="./src/img/images/p2.png">
+                data-title="Cinerária" data-desc="Famosa por seus densos maciços de flores que cobrem
+                        completamente a folhagem, a Cinerária exibe tons espetaculares de roxo e azul-violeta. É uma
+                        excelente opção para decorar ambientes internos bem iluminados ou varandas protegidas do sol
+                        forte." data-price="119,90" data-img="./src/img/images/p2.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p2.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
                     <span
@@ -180,10 +209,11 @@
                 </div>
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Exclusivo</p>
-                    <h3 class="text-lg font-bold text-gray-800 mt-1">Prímula (Primula vulgaris)</h3>
-                    <p class="text-gray-500 text-xs mt-2">O símbolo do início da primavera! Com cores vivas e textura
-                        aveludada, é perfeita para decorar mesas, parapeitos de janela ou formar maciços em locais de
-                        meia-sombra.
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Cinerária</h3>
+                    <p class="text-gray-500 text-xs mt-2">Famosa por seus densos maciços de flores que cobrem
+                        completamente a folhagem, a Cinerária exibe tons espetaculares de roxo e azul-violeta. É uma
+                        excelente opção para decorar ambientes internos bem iluminados ou varandas protegidas do sol
+                        forte.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -197,8 +227,10 @@
             </div>
 
             <!-- Card 3 -->
-            <div
-                class="w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                data-title="Primavera"
+                data-desc="Uma versão arbustiva compacta ideal para cultivo em vasos e pequenos pátios. Suas brácteas (folhas modificadas coloridas) em tons dourados e alaranjados adoram o sol pleno e trazem uma atmosfera tropical e radiante a qualquer área externa."
+                data-price="74,90" data-img="./src/img/images/p3.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p3.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
                     <span
@@ -209,9 +241,9 @@
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Solar</p>
                     <h3 class="text-lg font-bold text-gray-800 mt-1">Primavera em Vaso</h3>
-                    <p class="text-gray-500 text-xs mt-2">Uma planta exuberante e tropical. Suas "flores" vibrantes (na
-                        verdade, brácteas/folhas modificadas) trazem uma explosão de cor marcante para quintais, pátios
-                        e áreas abertas.
+                    <p class="text-gray-500 text-xs mt-2">Uma versão arbustiva compacta ideal para cultivo em vasos e
+                        pequenos pátios. Suas brácteas (folhas modificadas coloridas) em tons dourados e alaranjados
+                        adoram o sol pleno e trazem uma atmosfera tropical e radiante a qualquer área externa.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -230,8 +262,10 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center pt-20">
 
-            <div
-                class="w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                data-title="Azaleia Belga"
+                data-desc="Um clássico absoluto de inverno e primavera. Esta azaleia apresenta flores densas com pétalas delicadamente texturizadas, criando um visual marcante. Gosta de solo úmido e locais de meia-sombra para manter a floração vigorosa."
+                data-price="119,90" data-img="./src/img/images/p4.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p4.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
                     <span
@@ -241,9 +275,10 @@
                 </div>
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Floricultura Bloom</p>
-                    <h3 class="text-lg font-bold text-gray-800 mt-1">Gerânio (Pelargônio)</h3>
-                    <p class="text-gray-500 text-xs mt-2">Uma das flores de vaso mais clássicas e resistentes. Ideal
-                        para varandas, janelas e jardins bem iluminados. Oferece floração generosa e contínua.
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Azaleia Belga</h3>
+                    <p class="text-gray-500 text-xs mt-2">Um clássico absoluto de inverno e primavera. Esta azaleia
+                        apresenta flores densas com pétalas delicadamente texturizadas, criando um visual marcante.
+                        Gosta de solo úmido e locais de meia-sombra para manter a floração vigorosa.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -257,8 +292,10 @@
             </div>
 
             <!-- Card 5 -->
-            <div
-                class="w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                data-title="Buquê Mix Premium de Rosas e Lisianthus"
+                data-desc="Uma combinação exuberante de espécies nobres selecionadas à mão. Apresenta flores densas em tons suaves e românticos, criando um visual marcante para presentear e eternizar momentos inesquecíveis."
+                data-price="119,90" data-img="./src/img/images/p5.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p5.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
                     <span
@@ -268,10 +305,8 @@
                 </div>
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Exclusivo</p>
-                    <h3 class="text-lg font-bold text-gray-800 mt-1">Prímula (Primula vulgaris)</h3>
-                    <p class="text-gray-500 text-xs mt-2">O símbolo do início da primavera! Com cores vivas e textura
-                        aveludada, é perfeita para decorar mesas, parapeitos de janela ou formar maciços em locais de
-                        meia-sombra.
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Buquê Mix Premium</h3>
+                    <p class="text-gray-500 text-xs mt-2">Uma combinação exuberante de espécies nobres selecionadas à mão. Apresenta flores densas em tons suaves e românticos, criando um visual marcante para presentear e eternizar momentos inesquecíveis. Ideal para encantar em qualquer ocasião.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -285,8 +320,10 @@
             </div>
 
             <!-- Card 6 -->
-            <div
-                class="w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="product-card w-full max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-pink-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                data-title="Hortênsia"
+                data-desc="Famosa por seus grandes buquês globosos e volumosos, a hortênsia é o símbolo do charme campestre. Com tons que variam entre o rosa, lilás e azul conforme o solo, ela adiciona frescor instantâneo a varandas e jardins bem ventilados."
+                data-price="119,90" data-img="./src/img/images/p6.png">
                 <div class="relative h-64 w-full flex items-center justify-center p-4 bg-pink-50/30">
                     <img src="./src/img/images/p6.png" alt="Buquê Primavera" class="h-full w-full object-contain" />
                     <span
@@ -296,10 +333,10 @@
                 </div>
                 <div class="p-5 text-center">
                     <p class="text-xs text-pink-500 font-semibold uppercase tracking-wide">Solar</p>
-                    <h3 class="text-lg font-bold text-gray-800 mt-1">Primavera em Vaso</h3>
-                    <p class="text-gray-500 text-xs mt-2">Uma planta exuberante e tropical. Suas "flores" vibrantes (na
-                        verdade, brácteas/folhas modificadas) trazem uma explosão de cor marcante para quintais, pátios
-                        e áreas abertas.
+                    <h3 class="text-lg font-bold text-gray-800 mt-1">Hortênsia</h3>
+                    <p class="text-gray-500 text-xs mt-2">Famosa por seus grandes buquês globosos e volumosos, a
+                        hortênsia é o símbolo do charme campestre. Com tons que variam entre o rosa, lilás e azul
+                        conforme o solo, ela adiciona frescor instantâneo a varandas e jardins bem ventilados.
                     </p>
                     <div class="mt-4 flex justify-center items-baseline gap-1">
                         <span class="text-xs text-gray-400">R$</span>
@@ -316,58 +353,294 @@
     </section>
 
 
-
-
-    <div
-        class="w-full max-w-4xl bg-[#FFF0F3] shadow-2xl rounded-3xl px-8 py-6 md:px-10 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6 mx-auto my-12 ">
-        <div class="flex-1 text-left max-w-sm">
-            <span class="text-[#E55B69] text-[11px] md:text-xs font-bold uppercase tracking-[0.3em] block mb-1">
-                COLLECTION
-            </span>
-
-            <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 tracking-tight leading-snug mb-2">
-                Beautiful Flower Pot
-            </h2>
-
-            <p class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
-                Flores selecionadas e vasos suspensos exclusivos para trazer elegância, cor e vida para o seu ambiente.
-            </p>
-
-            <a href="#"
-                class="inline-block bg-[#E5386B] hover:bg-[#C92A5A] text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition-transform duration-100 hover:scale-105 shadow-sm">
-                Shop Now
-            </a>
-        </div>
-        - <div class="w-full md:w-auto flex justify-center items-center">
-            <img src="./src/img/images/shoes-bag.png" alt="Beautiful Flower Pot"
-                class="w-44 md:w-56 h-auto object-contain drop-shadow-md hidden sm:block" />
-        </div>
-    </div>
-
     <dialog id="dynamic-modal"
-        class="rounded-2xl p-0 shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-sm max-w-md w-full border border-pink-100">
-        <div class="p-6 text-center relative bg-white flex flex-col items-center">
+        class="rounded-3xl p-0 shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm max-w-4xl w-full border border-pink-100 overflow-hidden font-sans">
+        <div
+            class="relative bg-white flex flex-col md:flex-row h-full max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-visible">
+
             <button id="close-modal-btn"
-                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+                class="absolute top-4 right-4 z-50 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-pink-600 shadow text-xl font-bold transition-colors">&times;</button>
 
-            <div class="w-full h-48 flex items-center justify-center bg-pink-50/30 rounded-xl p-4 mb-4">
-                <img id="modal-img" src="" alt="" class="h-full object-contain">
+            <div
+                class="w-full md:w-1/2 bg-pink-50/20 p-6 flex items-center justify-center min-h-64 md:min-h-full border-b md:border-b-0 md:border-r border-pink-100">
+                <img id="modal-img" src="" alt="" class="max-h-60 md:max-h-72 w-full object-contain drop-shadow-md">
             </div>
 
-            <h3 id="modal-title" class="text-2xl font-serif font-bold text-pink-950 mb-2"></h3>
-            <p id="modal-desc" class="text-gray-600 text-sm mb-4 px-2"></p>
+            <div class="w-full md:w-1/2 p-6 flex flex-col justify-between">
+                <div>
+                    <span class="text-[10px] font-bold tracking-wider text-pink-600 uppercase block mb-1">Disponível
+                        para Hoje</span>
+                    <h3 id="modal-title"
+                        class="text-xl md:text-2xl font-serif font-bold text-pink-950 mb-2 leading-tight"></h3>
+                    <p id="modal-desc" class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4"></p>
 
-            <div class="flex items-baseline gap-1 mb-6">
-                <span class="text-xs text-gray-400 font-medium">R$</span>
-                <span id="modal-price" class="text-3xl font-bold text-gray-800"></span>
+                    <div class="mb-4 pb-4 border-b border-pink-100">
+                        <label class="block text-xs font-bold text-pink-950 uppercase tracking-wider mb-2">Selecione o
+                            Tamanho</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label
+                                class="cursor-pointer border border-pink-200 text-center rounded-xl p-2 block hover:border-pink-500 transition-all">
+                                <input type="radio" name="tamanho" value="p" class="sr-only peer">
+                                <span class="text-xs font-bold text-gray-700 block">Padrão</span>
+                                <span class="text-[10px] text-gray-400 block mt-0.5">Valor normal</span>
+                            </label>
+                            <label
+                                class="cursor-pointer border border-pink-200 text-center rounded-xl p-2 block hover:border-pink-500 transition-all">
+                                <input type="radio" name="tamanho" value="m" class="sr-only peer" checked>
+                                <span class="text-xs font-bold text-gray-700 block">Caprichado</span>
+                                <span class="text-[10px] text-pink-600 block mt-0.5">+ R$ 35,00</span>
+                            </label>
+                            <label
+                                class="cursor-pointer border border-pink-200 text-center rounded-xl p-2 block hover:border-pink-500 transition-all">
+                                <input type="radio" name="tamanho" value="g" class="sr-only peer">
+                                <span class="text-xs font-bold text-gray-700 block">Luxo</span>
+                                <span class="text-[10px] text-pink-600 block mt-0.5">+ R$ 70,00</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-xs font-bold text-pink-950 uppercase tracking-wider mb-2">Adicione um
+                            mimo extra</label>
+                        <div class="flex flex-col gap-2">
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl p-2 text-xs cursor-pointer bg-gray-50/50 hover:bg-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox"
+                                        class="rounded border-gray-300 text-pink-600 focus:ring-pink-500">
+                                    <span class="text-gray-700">Caixa de Bombons Finos</span>
+                                </div>
+                                <span class="font-bold text-pink-950">+ R$ 29,90</span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl p-2 text-xs cursor-pointer bg-gray-50/50 hover:bg-gray-50">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox"
+                                        class="rounded border-gray-300 text-pink-600 focus:ring-pink-500">
+                                    <span class="text-gray-700">Balão Metalizado Coração</span>
+                                </div>
+                                <span class="font-bold text-pink-950">+ R$ 15,00</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div
+                        class="flex items-baseline justify-between mb-4 bg-pink-50/30 p-3 rounded-2xl border border-pink-100/50">
+                        <span class="text-xs font-medium text-pink-950">Total estimado:</span>
+                        <div class="flex items-baseline gap-0.5">
+                            <span class="text-xs text-pink-700 font-bold">R$</span>
+                            <span id="modal-price" class="text-2xl font-black text-pink-950"></span>
+                        </div>
+                    </div>
+
+                    <button
+                        class="w-full bg-pink-500 hover:bg-pink-700 text-white font-semibold py-3.5 px-6 rounded-2xl shadow-lg shadow-pink-200 transition transform hover:scale-[1.02] active:scale-[0.98]">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
             </div>
 
-            <button
-                class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors">
-                Adicionar ao Carrinho
-            </button>
         </div>
     </dialog>
+
+
+    <section id="sobre"
+        class="mx-auto my-16 flex w-full max-w-7xl flex-col items-center justify-between gap-10 rounded-3xl bg-[#FFF0F3] px-8 py-10 shadow-xl md:flex-row md:px-14 md:py-14">
+
+        <div class="flex flex-col space-y-5 md:w-1/2">
+            <span class="text-sm font-semibold uppercase tracking-wider text-pink-600">Nossa Essência</span>
+
+            <h2 class="text-4xl font-extrabold tracking-tight text-pink-950 md:text-5xl">
+                Sobre Nós
+            </h2>
+
+            <p class="leading-relaxed text-pink-900/80 md:text-lg">
+                Na <span class="font-semibold text-pink-950">Secret Garden</span>, acreditamos que flores não são apenas
+                presentes, mas mensageiras de sentimentos puros. Nossa jornada começou com o propósito de espalhar cor,
+                perfume e vida pelos momentos mais marcantes da sua história.
+            </p>
+
+            <p class="leading-relaxed text-pink-900/80">
+                Cada arranjo é desenhado de forma artesanal, combinando frescor rigoroso com um olhar artístico e
+                contemporâneo. Cuidamos desde a escolha do produtor até o laço final, garantindo que o amor chegue
+                intacto ao seu destino.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 border-t border-pink-200/80 pt-6">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="flower" class="h-5 w-5 text-pink-600"></i>
+                    <span class="text-sm font-medium text-pink-950">100% Artesanal</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <i data-lucide="truck" class="h-5 w-5 text-pink-600"></i>
+                    <span class="text-sm font-medium text-pink-950">Entrega no Mesmo Dia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative w-full md:w-1/2">
+            <div class="absolute -left-3 -top-3 h-full w-full rounded-2xl bg-pink-200/60"></div>
+
+            <img src="https://plus.unsplash.com/premium_photo-1677005708723-c0dabb815e4b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Florista criando um arranjo de flores delicado"
+                class="relative z-10 w-full rounded-2xl object-cover shadow-lg transition-transform duration-500 hover:scale-[1.02] md:aspect-square">
+        </div>
+
+    </section>
+
+
+   <section class="mx-auto my-20 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 text-center">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E55B69]">
+            Passo a Passo
+        </span>
+        <h2 class="mt-2 text-3xl font-extrabold text-gray-900 md:text-4xl">
+            Como Funciona
+        </h2>
+        <p class="mx-auto mt-2 max-w-md text-sm text-gray-600">
+            Do pedido até a entrega, cuidamos de cada detalhe com carinho.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+                <i data-lucide="flower-2" class="h-7 w-7"></i>
+            </div>
+            <span class="mb-1 text-xs font-bold uppercase tracking-wider text-[#E55B69]">Passo 01</span>
+            <h3 class="mb-2 text-lg font-bold text-gray-900">Escolha o Arranjo</h3>
+            <p class="text-xs leading-relaxed text-gray-600">
+                Navegue pelo catálogo e escolha a opção ideal para o seu momento.
+            </p>
+        </div>
+
+        <div class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+                <i data-lucide="heart-handshake" class="h-7 w-7"></i>
+            </div>
+            <span class="mb-1 text-xs font-bold uppercase tracking-wider text-[#E55B69]">Passo 02</span>
+            <h3 class="mb-2 text-lg font-bold text-gray-900">Personalize</h3>
+            <p class="text-xs leading-relaxed text-gray-600">
+                Adicione uma mensagem especial para o cartão e escolha a data desejada.
+            </p>
+        </div>
+
+        <div class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+                <i data-lucide="sparkles" class="h-7 w-7"></i>
+            </div>
+            <span class="mb-1 text-xs font-bold uppercase tracking-wider text-[#E55B69]">Passo 03</span>
+            <h3 class="mb-2 text-lg font-bold text-gray-900">Montagem Artesanal</h3>
+            <p class="text-xs leading-relaxed text-gray-600">
+                Nossos floristas preparam seu pedido com flores frescas e selecionadas.
+            </p>
+        </div>
+
+        <div class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+                <i data-lucide="truck" class="h-7 w-7"></i>
+            </div>
+            <span class="mb-1 text-xs font-bold uppercase tracking-wider text-[#E55B69]">Passo 04</span>
+            <h3 class="mb-2 text-lg font-bold text-gray-900">Entrega Rápida</h3>
+            <p class="text-xs leading-relaxed text-gray-600">
+                Entregamos no mesmo dia para garantir o frescor total das flores.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="w-full bg-[#FFF0F3] border-t border-pink-200 mt-20 pt-16 pb-8 px-6 md:px-16 font-sans">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-pink-200 pb-12">
+
+            <div class="flex flex-col space-y-4">
+                <h3 class="text-gray-900 text-2xl font-light tracking-wide">
+                    Secret <span class="font-cursive font-bold text-pink-600 text-3xl">Garden</span>
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed font-serif">
+                    Transformando sentimentos puros em arte floral delicada. Flores frescas colhidas e entregues com
+                    amor todos os dias.
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <a href="#"
+                        class="w-9 h-9 rounded-full bg-white border border-pink-200 flex items-center justify-center text-pink-600 hover:bg-pink-600 hover:text-white transition-all duration-300">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-full bg-white border border-pink-200 flex items-center justify-center text-pink-600 hover:bg-pink-600 hover:text-white transition-all duration-300">
+                        <i data-lucide="facebook" class="w-4 h-4 text-black"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-pink-950 font-bold text-sm uppercase tracking-wider">Navegação</h4>
+                <ul class="flex flex-col space-y-2 text-sm text-gray-600">
+                    <li><a href="#home" class="hover:text-pink-600 transition-colors duration-200">Início</a></li>
+                    <li><a href="#catalogo" class="hover:text-pink-600 transition-colors duration-200">Nosso
+                            Catálogo</a></li>
+                    <li><a href="#sobre" class="hover:text-pink-600 transition-colors duration-200">Sobre a
+                            Floricultura</a></li>
+                    <li><a href="#contato" class="hover:text-pink-600 transition-colors duration-200">Fale Conosco</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-pink-950 font-bold text-sm uppercase tracking-wider">Contato</h4>
+                <ul class="flex flex-col space-y-3 text-sm text-gray-600">
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-pink-600 shrink-0"></i>
+                        <span>(11) 99999-9999</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-pink-600 shrink-0"></i>
+                        <span>oi@secretgarden.com</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-pink-600 shrink-0 mt-0.5"></i>
+                        <span class="font-serif">Av. das Flores, 123 - São Paulo, SP</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-pink-950 font-bold text-sm uppercase tracking-wider">Funcionamento</h4>
+                <p class="text-sm text-gray-600 font-serif">
+                    Segunda a Sábado: 08h às 19h<br>
+                    Domingos e Feriados: 09h às 14h
+                </p>
+                <div class="pt-2">
+                    <h5 class="text-xs font-semibold text-pink-950/60 uppercase tracking-wider mb-2">Formas de Pagamento
+                    </h5>
+                    <div class="flex gap-2 text-gray-500 text-xs font-bold tracking-wider">
+                        <span
+                            class="bg-white border border-pink-200 px-2 py-1 rounded text-[10px] text-pink-700">PIX</span>
+                        <span
+                            class="bg-white border border-pink-200 px-2 py-1 rounded text-[10px] text-gray-700">CARTÃO</span>
+                        <span
+                            class="bg-white border border-pink-200 px-2 py-1 rounded text-[10px] text-gray-700">BOLETO</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div
+            class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-gray-500 gap-4">
+            <p>&copy; 2026 Secret Garden Floricultura. Todos os direitos reservados.</p>
+            <p class="flex items-center gap-1">
+                Desenvolvido com <i data-lucide="heart" class="w-3 h-3 text-pink-500 fill-pink-500"></i> para a Fatec
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 
