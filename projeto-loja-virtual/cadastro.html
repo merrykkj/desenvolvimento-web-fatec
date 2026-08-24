@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Secret Garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/desenvolvimento-web-fatec/projeto-loja-virtual/index.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        cursive: ['"Dancing Script"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-to-r from-pink-300/50 via-white to-pink-300/50 min-h-screen flex items-center justify-center p-4">
+
+    <main class="w-full max-w-md">
+        <div class="bg-white shadow-2xl border border-gray-300/70 rounded-2xl p-8">
+
+            <div class="text-center mb-8 relative">
+
+                <h1 class="text-gray-900 text-3xl font-light tracking-wide mb-4">
+                    Secret
+                    <a href="/desenvolvimento-web-fatec/projeto-loja-virtual/index.html"
+                        class="font-cursive font-bold text-pink-600 text-4xl hover:text-pink-800 transition-colors duration-300 relative top-1 cursor-pointer">
+                        Garden
+                    </a>
+                </h1>
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest text-center mb-6">Crie sua conta
+                </p>
+            </div>
+
+            <form class="flex flex-col gap-4">
+                <div>
+                    <label for="nome"
+                        class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Nome Completo</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i data-lucide="user" class="w-5 h-5"></i>
+                        </div>
+                        <input type="text" id="nome" placeholder="Seu nome"
+                            class="w-full pl-11 pr-4 py-3 bg-white/60 border border-pink-100 rounded-2xl text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email"
+                        class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">E-mail</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <input type="email" id="email" placeholder="seu@email.com"
+                            class="w-full pl-11 pr-4 py-3 bg-white/60 border border-pink-100 rounded-2xl text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="senha"
+                        class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Senha</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i data-lucide="lock" class="w-5 h-5"></i>
+                        </div>
+                        <input type="password" id="senha" placeholder="••••••••"
+                            class="w-full pl-11 pr-4 py-3 bg-white/60 border border-pink-100 rounded-2xl text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="confirmar-senha"
+                        class="block text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Confirmar Senha</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i data-lucide="lock-check" class="w-5 h-5"></i>
+                        </div>
+                        <input type="password" id="confirmar-senha" placeholder="••••••••"
+                            class="w-full pl-11 pr-4 py-3 bg-white/60 border border-pink-100 rounded-2xl text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/10 transition-all duration-200">
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms"
+                        class="w-4 h-4 text-pink-600 border-gray-300 rounded focus:ring-pink-500 accent-pink-600 cursor-pointer">
+                    <label for="terms" class="ml-2 text-xs font-medium text-gray-600 cursor-pointer">Li e aceito os <a href="#" class="text-pink-600 hover:underline">termos de uso</a></label>
+                </div>
+
+                <button
+                    class="w-full mt-3 bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl shadow-lg shadow-pink-500/25 active:scale-[0.98] transition duration-200 cursor-pointer"
+                    type="submit">
+                    Cadastrar
+                </button>
+
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Já tem uma conta?
+                    <a href="login.html"
+                        class="font-semibold text-pink-600 hover:text-pink-700 hover:underline transition">Entrar</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
