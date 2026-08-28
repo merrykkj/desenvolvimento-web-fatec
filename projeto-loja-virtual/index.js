@@ -57,3 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('input', (event) => {
+      const searchTerm = event.target.value.toLowerCase().trim();
+
+      productCards.forEach((card) => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
