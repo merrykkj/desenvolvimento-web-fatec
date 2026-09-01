@@ -1,0 +1,41 @@
+<h1>Doação de Sangue</h1>
+<form class="janela">
+    Nome: <input type="text" id="nome" placeholder="Digite seu nome completo" maxlength="100" required><br><br>
+    E-mail: <input type="email" id="email" placeholder="Informe um e-mail valido" required> <br><br>
+    Idade: <input type="number" id="idade" min="18" max="65"> <br><br>
+    Peso: <input type="number" id="peso" min="45" max="150" step="0.1" required> <br><br>
+    Data: <input type="date" id="data" required> <br><br>
+    Hora: <input type="time" id="hora" required><br><br>
+    Senha: <input type="password" id="senha" required><br><br>
+    Tipo sanguíneo:
+    <div class="paisagem">
+        <input type="radio" id="tipoAp" name="tipo" required>A+
+        <input type="radio" id="tipoAn" name="tipo" required>A-
+        <input type="radio" id="tipoA" name="tipo" required>B+
+        <input type="radio" id="tipoA" name="tipo" required>B-
+        <input type="radio" id="tipoA" name="tipo" required>AB+
+        <input type="radio" id="tipoA" name="tipo" required>AB-
+        <input type="radio" id="tipoA" name="tipo" required>O+
+        <input type="radio" id="tipoA" name="tipo" required>O-<br><br>
+    </div>
+
+    <div class="retrato">
+        <option>A+</option>
+    </div>
+    Condições: <br><br>
+    <input type="checkbox" id="cTatoo"> Tatuagem ou piercing nos ultimos 2 meses?<br>
+    <input type="checkbox" id="cBebida">Ingeriu bebida alcoolica nas ultimas 12 hotas?<br>
+    <input type="checkbox" id="cGravida">Esta gravida?<br>
+    <input type="checkbox" id="cIST">Tem alguma doença contagiosa?<br>
+    <input type="checkbox" id="cUltimosSeis">Doou sangue nos ultimos 6 meses? <br><br>
+
+    Telefone: <input type="text" id="telefone" required pattern="[0-9]{4,5}-[0-9]{4}">
+    Unidade: <select id="unidade">
+        <option>Ipiranga</option>
+        <option>Vila Mariana</option>
+        <option>Mooca</option>
+        <option>Vila Prudente</option>
+    </select><br><br>
+    obs: <textarea id="obs" rows="5" cols="50"></textarea><br><br>
+    <button id="btn1" class="botao">Enviar</button>
+</form>
