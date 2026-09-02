@@ -1,4 +1,4 @@
-<h1>Doação de Sangue</h1>
+<h1">Doação de Sangue</h1>
 <form class="janela">
     Nome: <input type="text" id="nome" placeholder="Digite seu nome completo" maxlength="100" required><br><br>
     E-mail: <input type="email" id="email" placeholder="Informe um e-mail valido" required> <br><br>
@@ -8,19 +8,17 @@
     Hora: <input type="time" id="hora" required><br><br>
     Senha: <input type="password" id="senha" required><br><br>
     Tipo sanguíneo:
-    <div class="paisagem">
-        <input type="radio" id="tipoAp" name="tipo" required>A+
-        <input type="radio" id="tipoAn" name="tipo" required>A-
-        <input type="radio" id="tipoA" name="tipo" required>B+
-        <input type="radio" id="tipoA" name="tipo" required>B-
-        <input type="radio" id="tipoA" name="tipo" required>AB+
-        <input type="radio" id="tipoA" name="tipo" required>AB-
-        <input type="radio" id="tipoA" name="tipo" required>O+
-        <input type="radio" id="tipoA" name="tipo" required>O-<br><br>
-    </div>
-
     <div class="retrato">
+    <select id="Tipos">
         <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+        <option>O+</option>
+        <option>O-</option>
+        </select>
     </div>
     Condições: <br><br>
     <input type="checkbox" id="cTatoo"> Tatuagem ou piercing nos ultimos 2 meses?<br>
