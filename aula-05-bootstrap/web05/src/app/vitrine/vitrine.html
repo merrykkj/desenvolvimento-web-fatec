@@ -1,1 +1,15 @@
-<p>vitrine works!</p>
+<div class="row">
+    <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2" *ngFor="let obj of lista">
+
+        {{obj.nome}} <br>
+        <img src="{{obj.codigo}}.jpg" class="card-img-top W-75"><br>
+        <div class="car-body">
+            <label class="card-title"></label>
+            R$ {{obj.valor}} <br>
+            R$ {{obj.valorPromo}} <br>
+            <button class="btn btn-info">Detalhe</button>
+            <button class="btn btn-success" *ngIf="obj.quantidade>0">Comprar</button>
+
+        </div>
+    </div>
+</div>
