@@ -1,0 +1,217 @@
+<section class="relative overflow-hidden bg-gradient-to-b from-[#FFF0F3] via-[#FFF5F6] to-white py-16 md:py-24 mt-20">
+    <div class="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-rose-100/30 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <span
+            class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E55B69] shadow-sm border border-pink-100/60">
+            <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Curadoria Exclusiva
+        </span>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl md:text-6xl font-sans">
+            Secret <span
+                class="inline-block text-pink-600 font-cursive transition-all duration-300 hover:scale-105">Garden</span>
+            & Coleções
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-stone-600 font-serif md:text-base">
+            Arranjos botânicos desenhados à mão, cultivados de forma sustentável e entregues com o frescor da manhã
+            direto na sua porta.
+        </p>
+
+        <!-- Botões de Categorias com Filtro Ativo -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2.5">
+            <button (click)="selecionarCategoria('todos')"
+                [ngClass]="categoriaSelecionada === 'todos' ? 'bg-pink-600 text-white shadow-md shadow-pink-500/10' : 'border border-pink-200/60 bg-white/90 text-stone-700 hover:border-pink-600 hover:text-pink-600'"
+                class="rounded-full px-6 py-2.5 text-xs font-medium shadow-sm transition-all">
+                Todos ({{ lista.length }})
+            </button>
+
+            <button (click)="selecionarCategoria('buques')"
+                [ngClass]="categoriaSelecionada === 'buques' ? 'bg-pink-600 text-white shadow-md shadow-pink-500/10' : 'border border-pink-200/60 bg-white/90 text-stone-700 hover:border-pink-600 hover:text-pink-600'"
+                class="rounded-full px-6 py-2.5 text-xs font-medium shadow-sm transition-all">
+                Buquês Nobres
+            </button>
+
+            <button (click)="selecionarCategoria('vasos')"
+                [ngClass]="categoriaSelecionada === 'vasos' ? 'bg-pink-600 text-white shadow-md shadow-pink-500/10' : 'border border-pink-200/60 bg-white/90 text-stone-700 hover:border-pink-600 hover:text-pink-600'"
+                class="rounded-full px-6 py-2.5 text-xs font-medium shadow-sm transition-all">
+                Vasos & Plantas
+            </button>
+
+            <button (click)="selecionarCategoria('especial')"
+                [ngClass]="categoriaSelecionada === 'especial' ? 'bg-pink-600 text-white shadow-md shadow-pink-500/10' : 'border border-pink-200/60 bg-white/90 text-stone-700 hover:border-pink-600 hover:text-pink-600'"
+                class="rounded-full px-6 py-2.5 text-xs font-medium shadow-sm transition-all">
+                Edição Especial
+            </button>
+        </div>
+    </div>
+</section>
+
+<div class="w-full max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+    <!-- Painel Lateral de Filtros -->
+    <aside class="w-full bg-white border border-pink-100/60 rounded-3xl p-6 shadow-sm h-fit">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-stone-800 border-b border-stone-100 pb-3 mb-5">
+            Filtros
+        </h3>
+
+        <div class="flex flex-col gap-6">
+            <!-- Filtro por Preço -->
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
+                    Preço Máximo: {{ precoMaximo | currency:'BRL':'symbol':'1.2-2' }}
+                </label>
+                <input type="range" min="30" max="300" [(ngModel)]="precoMaximo"
+                    class="w-full accent-pink-600 cursor-pointer">
+                <div class="flex justify-between text-[11px] text-stone-400 mt-1">
+                    <span>R$ 30</span>
+                    <span>R$ 300</span>
+                </div>
+            </div>
+
+            <!-- Checkboxes de Disponibilidade -->
+            <div>
+                <label
+                    class="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">Disponibilidade</label>
+                <div class="flex flex-col gap-2.5">
+                    <label class="flex items-center gap-2 text-xs text-stone-600 cursor-pointer select-none">
+                        <input type="checkbox" [(ngModel)]="apenasDisponiveis"
+                            class="rounded border-stone-300 text-pink-600 focus:ring-pink-500/20 accent-pink-600">
+                        Disponível em estoque
+                    </label>
+                    <label class="flex items-center gap-2 text-xs text-stone-600 cursor-pointer select-none">
+                        <input type="checkbox" [(ngModel)]="apenasPromocoes"
+                            class="rounded border-stone-300 text-pink-600 focus:ring-pink-500/20 accent-pink-600">
+                        Apenas Promoções
+                    </label>
+                </div>
+            </div>
+
+            <!-- Ordenação -->
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">Ordenar
+                    por</label>
+                <select [(ngModel)]="ordenarPor"
+                    class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-700 focus:outline-none focus:border-pink-500 focus:bg-white transition-all">
+                    <option value="vendas">Mais vendidos</option>
+                    <option value="menor">Menor preço</option>
+                    <option value="maior">Maior preço</option>
+                </select>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Vitrine Principal -->
+    <main class="w-full lg:col-span-3">
+        <section id="catalogo" class="w-full">
+
+            <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 border-b border-pink-50 pb-6">
+                <div class="text-center sm:text-left">
+                    <h2 class="text-xl font-bold tracking-wide uppercase text-stone-800">
+                        Flores Populares
+                    </h2>
+                </div>
+
+                <!-- Campo de Pesquisa por Nome -->
+                <div class="relative w-full sm:w-72 mx-auto sm:mx-0">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <input type="text" [(ngModel)]="termoBusca" placeholder="Pesquise flores..."
+                        class="w-full pl-9 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-full text-stone-800 placeholder-stone-400 text-xs focus:outline-none focus:bg-white focus:border-pink-500 focus:ring-4 focus:ring-pink-500/5 transition-all duration-200 shadow-sm">
+                </div>
+            </div>
+
+            <!-- Listagem de Produtos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center">
+                @for (obj of listaFiltrada; track obj.codigo) {
+
+                <div
+                    class="product-card group w-full bg-white rounded-3xl shadow-sm hover:shadow-2xl border border-pink-100/40 overflow-hidden transition-all duration-300 flex flex-col justify-between h-[480px] relative">
+
+                    <div class="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
+                        @if (obj.destaque === 1) {
+                        <span
+                            class="bg-rose-500 text-white text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase shadow-sm">
+                            Novo
+                        </span>
+                        }
+                        @if (obj.valorPromo > 0) {
+                        <span
+                            class="bg-amber-500 text-white text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase shadow-sm">
+                            Oferta
+                        </span>
+                        }
+                    </div>
+
+                    <div class="relative h-52 w-full flex items-center justify-center p-6 bg-stone-50 overflow-hidden">
+                        <img src="{{obj.codigo}}.png" [alt]="obj.nome"
+                            class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-1 justify-between gap-4 bg-white">
+
+                        <div class="text-center flex flex-col gap-1.5">
+                            <p class="text-[9px] text-stone-400 font-bold uppercase tracking-widest">Secret Garden</p>
+
+                            <h3 class="text-base font-bold text-stone-800 line-clamp-1 group-hover:text-pink-600 transition-colors duration-200"
+                                [title]="obj.nome">
+                                {{ obj.nome }}
+                            </h3>
+
+                            <p class="text-stone-400 text-xs leading-relaxed font-serif line-clamp-2">
+                                {{ obj.descritivo }}
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+
+                            <div
+                                class="flex flex-col items-center justify-center min-h-[44px] bg-stone-50/50 py-1.5 rounded-xl border border-stone-100/60">
+                                @if (obj.valorPromo > 0) {
+                                <span class="text-[10px] text-stone-400 line-through">{{ obj.valor |
+                                    currency:'BRL':'symbol':'1.2-2' }}</span>
+                                <div class="flex items-baseline gap-0.5 text-pink-600 font-extrabold">
+                                    <span class="text-2xl tracking-tight">{{ obj.valorPromo |
+                                        currency:'BRL':'symbol':'1.2-2' }}</span>
+                                </div>
+                                } @else {
+                                <span class="text-[10px] text-transparent select-none">-</span>
+                                <div class="flex items-baseline gap-0.5 text-stone-800 font-extrabold">
+                                    <span class="text-2xl tracking-tight">{{ obj.valor | currency:'BRL':'symbol':'1.2-2'
+                                        }}</span>
+                                </div>
+                                }
+                            </div>
+
+                            <div class="w-full">
+                                @if (obj.quantidade > 0) {
+                                <button type="button"
+                                    class="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-2.5 px-4 rounded-xl transition-all duration-300 text-xs tracking-wide shadow-sm hover:shadow-md active:scale-[0.99]">
+                                    Comprar Agora
+                                </button>
+                                } @else {
+                                <button type="button" disabled
+                                    class="w-full bg-stone-100 text-stone-400 font-medium py-2.5 px-4 rounded-xl text-xs cursor-not-allowed">
+                                    Esgotado
+                                </button>
+                                }
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                } @empty {
+                <div class="col-span-full py-12 text-center text-stone-500">
+                    <p class="text-sm font-medium">Nenhum produto encontrado com os filtros selecionados.</p>
+                </div>
+                }
+
+            </div>
+        </section>
+    </main>
+</div>
