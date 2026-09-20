@@ -178,7 +178,7 @@
 
                             <div class="w-full">
                                 @if (obj.quantidade > 0) {
-                                <a [href]="'/produto/' + obj.codigo"
+                                <a [routerLink]="'/produto/' + obj.codigo"
                                     class="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-2.5 px-4 rounded-xl transition-all duration-300 text-xs tracking-wide shadow-sm hover:shadow-md active:scale-[0.99] block text-center">
                                     Comprar agora
                                 </a>

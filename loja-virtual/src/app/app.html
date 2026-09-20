@@ -1,4 +1,4 @@
-<header id="main-header" [ngClass]="isScrolled ? 'bg-white shadow-2xl' : 'bg-transparent'"
+<header *ngIf="exibirHeaderFooter" id="main-header" [ngClass]="isScrolled ? 'bg-white shadow-2xl' : 'bg-transparent'"
     class="top-0 left-0 w-full z-50 backdrop-blur-md transition-all duration-300 fixed px-4 sm:px-8 py-4">
 
     <div class="max-w-6xl mx-auto flex items-center justify-between sm:flex-col sm:gap-4">
@@ -6,7 +6,7 @@
         <div class="text-left sm:text-center">
             <h1 class="text-gray-900 text-2xl sm:text-3xl font-light tracking-wide">
                 Secret
-                <a href="/"
+                <a routerLink="/"
                     class="font-cursive font-bold text-pink-600 text-3xl sm:text-4xl hover:text-pink-800 transition-colors duration-300 relative top-1 cursor-pointer">
                     Garden
                 </a>
@@ -18,46 +18,98 @@
             <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"></i>
         </button>
 
-        <!-- Navegação Desktop -->
         <div class="hidden sm:flex w-full items-center justify-center relative">
             <nav>
                 <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase text-gray-700">
-                    <li><a href="/" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
-                    <li><a href="/catalogo" class="hover:text-pink-600 transition-colors duration-300">Catálogo</a></li>
+                    <li><a routerLink="/" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
+                    <li><a routerLink="/catalogo" class="hover:text-pink-600 transition-colors duration-300">Catálogo</a></li>
                 </ul>
             </nav>
-            <div class="flex gap-5 absolute right-0">
-                <a href="login"
-                    class="bg-pink-500 text-white rounded-md py-1 px-7 hover:text-pink-500 hover:bg-white transition transform duration-300 hover:scale-105 hover:shadow-2xl shadow-pink-500 hover:border hover:border-pink-400">Login</a>
-                <a href="cadastro"
-                    class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-white hover:bg-pink-500 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
-            </div>
+
+            <ng-container *ngIf="(usuario$ | async) as usuario; else botoesDeslogadoDesktop">
+                <div class="flex gap-5 absolute right-0 items-center">
+                    <a routerLink="/carrinho" aria-label="Ver Carrinho" class="relative text-gray-700 hover:text-pink-600 transition-colors p-1">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span *ngIf="qtdCarrinho > 0" class="absolute -top-1.5 -right-2 bg-pink-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">
+                            {{ qtdCarrinho }}
+                        </span>
+                    </a>
+
+                    <div class="flex items-center gap-2 border-l border-pink-200 pl-4">
+                        <div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 border border-pink-300 font-bold flex items-center justify-center text-xs shadow-sm">
+                            {{ usuario.nome.charAt(0) }}
+                        </div>
+                        <span class="text-xs font-bold text-gray-800">{{ usuario.nome }}</span>
+                        
+                        <button (click)="logout()" title="Sair da conta" class="text-gray-400 hover:text-rose-600 transition text-sm ml-1 cursor-pointer">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-template #botoesDeslogadoDesktop>
+                <div class="flex gap-5 absolute right-0">
+                    <a routerLink="/login"
+                        class="bg-pink-500 text-white rounded-md py-1 px-7 hover:text-pink-500 hover:bg-white transition transform duration-300 hover:scale-105 hover:shadow-2xl shadow-pink-500 hover:border hover:border-pink-400">Login</a>
+                    <a routerLink="/cadastro"
+                        class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-white hover:bg-pink-500 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
+                </div>
+            </ng-template>
         </div>
     </div>
 
-    <!-- Menu Mobile -->
     <div *ngIf="isMenuOpen"
         class="sm:hidden bg-white/95 backdrop-blur-md rounded-2xl mt-4 p-6 shadow-xl border border-pink-100 flex flex-col gap-6 animate-fadeIn">
-        <nav>
-            <ul class="flex flex-col gap-4 text-center text-sm font-medium tracking-wide uppercase text-gray-700">
-                <li><a routerLink="/" (click)="closeMenu()"
-                        class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
-                <li><a routerLink="/catalogo" (click)="closeMenu()"
-                        class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
-            </ul>
-        </nav>
-        <div class="flex flex-col gap-3 pt-2 border-t border-pink-100">
-            <a href="#" (click)="closeMenu()"
-                class="bg-pink-500 text-white text-center rounded-md py-2 px-7 hover:bg-pink-600 transition duration-300 w-full font-medium">Login</a>
-            <a href="#" (click)="closeMenu()"
-                class="bg-white text-pink-500 text-center rounded-md py-2 px-7 border border-pink-400 hover:bg-pink-50 transition duration-300 w-full font-medium">Cadastro</a>
-        </div>
+        
+        <ng-container *ngIf="(usuario$ | async) as usuario; else menuMobileDeslogado">
+            <nav>
+                <ul class="flex flex-col gap-4 text-center text-sm font-medium tracking-wide uppercase text-gray-700">
+                    <li><a routerLink="/" (click)="closeMenu()"
+                            class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
+                    <li><a routerLink="/catalogo" (click)="closeMenu()"
+                            class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
+                    <li><a routerLink="/carrinho" (click)="closeMenu()" 
+                            class="hover:text-pink-600 transition-colors block py-1">Meu Carrinho ({{ qtdCarrinho }})</a></li>
+                </ul>
+            </nav>
+
+            <div class="flex flex-col items-center gap-3 pt-4 border-t border-pink-100 text-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 font-bold flex items-center justify-center text-xs">
+                        {{ usuario.nome.charAt(0) }}
+                    </div>
+                    <span class="text-sm font-bold text-gray-800">{{ usuario.nome }}</span>
+                </div>
+                <button (click)="logout()" class="text-xs font-semibold text-rose-600 hover:underline flex items-center gap-1 mt-1">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair da conta
+                </button>
+            </div>
+        </ng-container>
+
+        <ng-template #menuMobileDeslogado>
+            <nav>
+                <ul class="flex flex-col gap-4 text-center text-sm font-medium tracking-wide uppercase text-gray-700">
+                    <li><a routerLink="/" (click)="closeMenu()"
+                            class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
+                    <li><a routerLink="/catalogo" (click)="closeMenu()"
+                            class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
+                </ul>
+            </nav>
+
+            <div class="flex flex-col gap-3 pt-2 border-t border-pink-100">
+                <a routerLink="/login" (click)="closeMenu()"
+                    class="bg-pink-500 text-white text-center rounded-md py-2 px-7 hover:bg-pink-600 transition duration-300 w-full font-medium">Login</a>
+                <a routerLink="/cadastro" (click)="closeMenu()"
+                    class="bg-white text-pink-500 text-center rounded-md py-2 px-7 border border-pink-400 hover:bg-pink-50 transition duration-300 w-full font-medium">Cadastro</a>
+            </div>
+        </ng-template>
     </div>
 </header>
 
 <router-outlet />
 
-<footer class="w-full bg-[#FFF0F3] border-t border-pink-200 mt-20 pt-16 pb-8 px-6 md:px-16 font-sans">
+<footer *ngIf="exibirHeaderFooter" class="w-full bg-[#FFF0F3] border-t border-pink-200 mt-20 pt-16 pb-8 px-6 md:px-16 font-sans">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-pink-200 pb-12">
 
         <div class="flex flex-col space-y-4">
@@ -87,8 +139,8 @@
         <div class="flex flex-col space-y-4">
             <h4 class="text-pink-950 font-bold text-sm uppercase tracking-wider">Navegação</h4>
             <ul class="flex flex-col space-y-2 text-sm text-gray-600">
-                <li><a href="#home" class="hover:text-pink-600 transition-colors duration-200">Início</a></li>
-                <li><a href="#catalogo" class="hover:text-pink-600 transition-colors duration-200">Nosso Catálogo</a>
+                <li><a routerLink="/" class="hover:text-pink-600 transition-colors duration-200">Início</a></li>
+                <li><a routerLink="/catalogo" class="hover:text-pink-600 transition-colors duration-200">Nosso Catálogo</a>
                 </li>
                 <li><a href="#sobre" class="hover:text-pink-600 transition-colors duration-200">Sobre a Floricultura</a>
                 </li>
