@@ -1,0 +1,48 @@
+<main class="min-h-screen bg-rose-50/30 py-12 px-4 sm:px-6 lg:px-8 mt-16">
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-pink-100 p-6 sm:p-10">
+    <h1 class="text-2xl font-serif font-bold text-stone-800 mb-6">Seu Carrinho de Compras</h1>
+
+    <div *ngIf="carrinhoService.obterItens().length > 0; else carrinhoVazio">
+      <div class="flex flex-col divide-y divide-pink-100">
+        <div *ngFor="let item of carrinhoService.obterItens()" class="py-4 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <img [src]="item.produto.codigo + '.png'" [alt]="item.produto.nome" class="w-16 h-16 object-contain bg-stone-50 rounded-xl p-2 border border-pink-100">
+            <div>
+              <h3 class="text-sm font-bold text-stone-800">{{ item.produto.nome }}</h3>
+              <p class="text-xs text-stone-500">Qtd: {{ item.quantidade }}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <span class="text-sm font-bold text-pink-600">
+              {{ (item.produto.valorPromo > 0 ? item.produto.valorPromo : item.produto.valor) * item.quantidade | currency:'BRL' }}
+            </span>
+            <button (click)="carrinhoService.removerItem(item.produto.codigo)" class="text-stone-400 hover:text-red-500 transition">
+              <i class="fa-solid fa-trash text-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-pink-100 mt-6 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Total a pagar:</span>
+          <p class="text-3xl font-extrabold text-pink-600">{{ carrinhoService.obterTotal() | currency:'BRL' }}</p>
+        </div>
+
+        <button class="w-full sm:w-auto bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-8 rounded-2xl shadow-lg shadow-pink-500/25 active:scale-[0.98] transition">
+          Finalizar Pedido
+        </button>
+      </div>
+    </div>
+
+    <ng-template #carrinhoVazio>
+      <div class="text-center py-12">
+        <p class="text-stone-500 text-sm mb-4">Seu carrinho está vazio no momento.</p>
+        <a routerLink="/catalogo" class="bg-pink-600 text-white font-semibold py-2.5 px-6 rounded-xl text-xs hover:bg-pink-700 transition">
+          Explorar Flores
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</main>

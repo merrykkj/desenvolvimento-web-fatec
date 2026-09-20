@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Catalogo } from './catalogo/catalogo';
 import { Home } from './home/home';
+import { DetalheProduto } from './pages/detalhe-produto/detalhe-produto';
 
 export const routes: Routes = [
   { path: "catalogo", component: Catalogo },
@@ -12,5 +13,7 @@ export const routes: Routes = [
     path: 'cadastro', 
     loadComponent: () => import('./pages/cadastro/cadastro').then(m => m.Cadastro) 
   },
-  { path: "home", component: Home },
+  { path: 'produto/:codigo', component: DetalheProduto},
+  { path: "", component: Home },
+
 ];

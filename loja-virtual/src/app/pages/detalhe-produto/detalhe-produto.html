@@ -1,0 +1,186 @@
+<main class="min-h-screen bg-stone-50/60 pt-20 pb-20 px-4 sm:px-6 lg:px-8 w-full mt-20">
+  <div class="max-w-7xl mx-auto" *ngIf="produto; else naoEncontrado">
+    
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
+      <a routerLink="/catalogo" class="inline-flex items-center gap-2 text-xs font-bold text-stone-500 hover:text-pink-600 uppercase tracking-widest transition-colors">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Voltar ao Catálogo</span>
+      </a>
+
+      <nav class="flex items-center gap-2 text-xs font-medium text-stone-500 overflow-x-auto whitespace-nowrap">
+        <a routerLink="/" class="hover:text-pink-600 transition-colors">Início</a>
+        <i class="fa-solid fa-chevron-right text-[10px] text-stone-300"></i>
+        <a routerLink="/catalogo" class="hover:text-pink-600 transition-colors">Catálogo</a>
+        <i class="fa-solid fa-chevron-right text-[10px] text-stone-300"></i>
+        <span class="text-stone-900 font-semibold truncate max-w-[200px] sm:max-w-none">{{ produto.nome }}</span>
+      </nav>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      
+      <div class="lg:col-span-6 xl:col-span-7">
+        <div class="sticky top-24 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-stone-200/60 shadow-sm flex items-center justify-center relative overflow-hidden group min-h-[380px] sm:min-h-[480px] lg:min-h-[560px]">
+          
+          <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
+            <span *ngIf="produto.destaque === 1" class="bg-pink-600 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+              Destaque
+            </span>
+            <span *ngIf="produto.valorPromo > 0" class="bg-amber-500 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+              Oferta Especial
+            </span>
+          </div>
+
+          <img [src]="produto.codigo + '.png'" 
+               [alt]="produto.nome" 
+               class="max-h-[320px] sm:max-h-[420px] w-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105">
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 xl:col-span-5 flex flex-col space-y-6">
+        
+        <div class="space-y-3 pb-6 border-b border-stone-200">
+          <div class="flex items-center justify-between gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-pink-600 bg-pink-50 px-3 py-1 rounded-full border border-pink-100">
+              Secret Garden Collection
+            </span>
+            <span [class]="produto.quantidade > 0 ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : 'text-rose-700 bg-rose-50 border-rose-200'"
+                  class="text-xs font-semibold px-3 py-1 rounded-full border">
+              {{ produto.quantidade > 0 ? 'Em estoque (' + produto.quantidade + ' un.)' : 'Esgotado' }}
+            </span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+            {{ produto.nome }}
+          </h1>
+
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+            {{ produto.descritivo }}
+          </p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-stone-200/80 shadow-sm space-y-2">
+          <div class="flex items-baseline flex-wrap gap-3">
+            <ng-container *ngIf="produto.valorPromo > 0; else precoNormal">
+              <span class="text-3xl sm:text-4xl font-extrabold text-pink-600 tracking-tight">
+                {{ produto.valorPromo | currency:'BRL' }}
+              </span>
+              <span class="text-base text-stone-400 line-through font-medium">
+                {{ produto.valor | currency:'BRL' }}
+              </span>
+              <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md ml-auto">
+                Economize {{ (produto.valor - produto.valorPromo) | currency:'BRL' }}
+              </span>
+            </ng-container>
+
+            <ng-template #precoNormal>
+              <span class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+                {{ produto.valor | currency:'BRL' }}
+              </span>
+            </ng-template>
+          </div>
+          <p class="text-xs text-stone-500">Em até 3x sem juros no cartão de crédito</p>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            
+            <div class="flex items-center justify-between border border-stone-300 rounded-xl bg-white p-1 min-w-[130px] sm:w-auto shadow-sm">
+              <button type="button" 
+                      (click)="decrementar()" 
+                      aria-label="Diminuir quantidade"
+                      class="w-10 h-10 rounded-lg text-stone-600 font-bold hover:bg-stone-100 hover:text-stone-900 transition flex items-center justify-center">
+                <i class="fa-solid fa-minus text-xs"></i>
+              </button>
+              <span class="px-4 text-base font-bold text-stone-800">{{ qtdSelecionada }}</span>
+              <button type="button" 
+                      (click)="incrementar()" 
+                      aria-label="Aumentar quantidade"
+                      class="w-10 h-10 rounded-lg text-stone-600 font-bold hover:bg-stone-100 hover:text-stone-900 transition flex items-center justify-center">
+                <i class="fa-solid fa-plus text-xs"></i>
+              </button>
+            </div>
+
+            <button type="button"
+                    [disabled]="produto.quantidade === 0"
+                    (click)="adicionarAoCarrinho()" 
+                    [class.bg-emerald-600]="adicionadoComSucesso"
+                    [class.hover:bg-emerald-700]="adicionadoComSucesso"
+                    [class.bg-pink-600]="!adicionadoComSucesso"
+                    [class.hover:bg-pink-700]="!adicionadoComSucesso"
+                    class="flex-1 text-white font-bold py-3.5 px-6 rounded-xl shadow-md shadow-pink-600/10 hover:shadow-lg transition-all duration-200 active:scale-[0.99] flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed text-base">
+              
+              <ng-container *ngIf="!adicionadoComSucesso">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Adicionar ao Carrinho</span>
+              </ng-container>
+
+              <ng-container *ngIf="adicionadoComSucesso">
+                <i class="fa-solid fa-circle-check text-lg"></i>
+                <span>Adicionado com Sucesso!</span>
+              </ng-container>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-stone-200">
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200/70 flex items-center gap-3">
+            <i class="fa-solid fa-truck-fast text-pink-600 text-lg"></i>
+            <div>
+              <p class="text-xs font-bold text-stone-800">Entrega Expressa</p>
+              <p class="text-[11px] text-stone-500">Em até 24h na sua região</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200/70 flex items-center gap-3">
+            <i class="fa-solid fa-leaf text-pink-600 text-lg"></i>
+            <div>
+              <p class="text-xs font-bold text-stone-800">Flores Frescas</p>
+              <p class="text-[11px] text-stone-500">Selecionadas à mão</p>
+            </div>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200/70 flex items-center gap-3">
+            <i class="fa-solid fa-shield-halved text-pink-600 text-lg"></i>
+            <div>
+              <p class="text-xs font-bold text-stone-800">Compra Segura</p>
+              <p class="text-[11px] text-stone-500">Garantia de satisfação</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mt-16 bg-white rounded-2xl border border-stone-200/80 p-6 sm:p-10 shadow-sm">
+      <h2 class="text-lg font-bold text-stone-900 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-circle-info text-pink-600"></i> Detalhes do Produto & Cuidados
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-stone-600 leading-relaxed">
+        <div>
+          <h3 class="font-bold text-stone-800 mb-2">Sobre este arranjo</h3>
+          <p>Cada produto da linha Secret Garden é preparado artesanalmente por floristas especializados momentos antes do envio, garantindo máxima durabilidade, frescor e perfume.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-stone-800 mb-2">Dicas de conservação</h3>
+          <ul class="list-disc list-inside space-y-1 text-stone-600">
+            <li>Mantenha em local fresco, longe da luz solar direta.</li>
+            <li>Troque a água do vaso a cada 2 dias.</li>
+            <li>Corte 1cm da base das hastes na diagonal ao trocar a água.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #naoEncontrado>
+    <div class="max-w-md mx-auto text-center py-16 bg-white rounded-3xl shadow-sm p-8 border border-stone-200 my-12">
+      <i class="fa-solid fa-circle-exclamation text-5xl text-pink-500 mb-4"></i>
+      <h2 class="text-2xl font-bold text-stone-800">Produto não encontrado</h2>
+      <p class="text-stone-500 text-sm mt-2">O item que você procurou não está disponível ou foi removido do nosso catálogo.</p>
+      <a routerLink="/catalogo" class="mt-6 inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md shadow-pink-600/20">
+        <i class="fa-solid fa-arrow-left text-xs"></i> Voltar ao Catálogo
+      </a>
+    </div>
+  </ng-template>
+</main>

@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
-import { Produto } from '../model/produto';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Produto } from '../../model/produto'; // Ajuste o caminho se necessário
 
 @Component({
-  selector: 'app-catalogo',
+  selector: 'app-detalhe-produto',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
-  styleUrl: './catalogo.css',
-  templateUrl: './catalogo.html',
+  imports: [CommonModule, RouterLink],
+  templateUrl: './detalhe-produto.html',
+  styleUrl: './detalhe-produto.css'
 })
-export class Catalogo {
-  termoBusca: string = '';
-  precoMaximo: number = 300;
-  apenasDisponiveis: boolean = false;
-  apenasPromocoes: boolean = false;
-  ordenarPor: string = 'vendas';
-  categoriaSelecionada: string = 'todos';
+export class DetalheProduto implements OnInit {
 
-  lista: Produto[] = [
+  produto?: Produto;
+  qtdSelecionada: number = 1;
+  adicionadoComSucesso: boolean = false; // Controle da animação
+
+  listaProdutos: Produto[] = [
     { "codigo": 1, "nome": "Buquê de 12 Rosas Vermelhas", "descritivo": "Clássico buquê de rosas vermelhas selecionadas com embalagem especial e laço de cetim.", "valor": 149.90, "valorPromo": 129.90, "quantidade": 15, "destaque": 1 },
     { "codigo": 2, "nome": "Orquídea Phalaenopsis Lilás", "descritivo": "Vaso de orquídea lilás de alta durabilidade, perfeita para decoração de interiores.", "valor": 120.00, "valorPromo": 0, "quantidade": 8, "destaque": 1 },
     { "codigo": 3, "nome": "Arranjo Girassóis da Alegria", "descritivo": "Arranjo vibrante com 5 girassóis frescos em vaso de vidro decorativo.", "valor": 89.90, "valorPromo": 79.90, "quantidade": 20, "destaque": 1 },
@@ -42,58 +39,37 @@ export class Catalogo {
     { "codigo": 20, "nome": "Cesta Café da Manhã com Flores", "descritivo": "Cesta completa com pães, frutas, suco e um pequeno buquê de flores da estação.", "valor": 250.00, "valorPromo": 219.90, "quantidade": 5, "destaque": 1 }
   ];
 
-  selecionarCategoria(categoria: string) {
-    this.categoriaSelecionada = categoria;
-  }
+  constructor(private route: ActivatedRoute) {}
 
-  get listaFiltrada(): Produto[] {
-    const termo = this.termoBusca.toLowerCase().trim();
-    const maxPreco = Number(this.precoMaximo);
-
-    let resultado = this.lista.filter(obj => {
-      const correspondeBusca = !termo ||
-        obj.nome.toLowerCase().includes(termo) ||
-        obj.descritivo.toLowerCase().includes(termo);
-
-      const precoAtual = obj.valorPromo > 0 ? obj.valorPromo : obj.valor;
-      const correspondePreco = precoAtual <= maxPreco;
-
-      const correspondeEstoque = !this.apenasDisponiveis || obj.quantidade > 0;
-      const correspondePromo = !this.apenasPromocoes || obj.valorPromo > 0;
-
-      let correspondeCategoria = true;
-      if (this.categoriaSelecionada === 'buques') {
-        correspondeCategoria = obj.nome.toLowerCase().includes('buquê');
-      } else if (this.categoriaSelecionada === 'vasos') {
-        const nomeLower = obj.nome.toLowerCase();
-        correspondeCategoria = nomeLower.includes('vaso') || nomeLower.includes('planta') || nomeLower.includes('orquídea');
-      } else if (this.categoriaSelecionada === 'especial') {
-        correspondeCategoria = obj.destaque === 1;
-      }
-
-      return correspondeBusca && correspondePreco && correspondeEstoque && correspondePromo && correspondeCategoria;
-    });
-
-    if (this.ordenarPor === 'menor') {
-      resultado = [...resultado].sort((a, b) => {
-        const precoA = a.valorPromo > 0 ? a.valorPromo : a.valor;
-        const precoB = b.valorPromo > 0 ? b.valorPromo : b.valor;
-        return precoA - precoB;
-      });
-    } else if (this.ordenarPor === 'maior') {
-      resultado = [...resultado].sort((a, b) => {
-        const precoA = a.valorPromo > 0 ? a.valorPromo : a.valor;
-        const precoB = b.valorPromo > 0 ? b.valorPromo : b.valor;
-        return precoB - precoA;
-      });
-
+  ngOnInit(): void {
+    const codigoParam = this.route.snapshot.paramMap.get('codigo');
+    if (codigoParam) {
+      const codigoNumero = Number(codigoParam);
+      this.produto = this.listaProdutos.find(item => item.codigo === codigoNumero);
     }
-
-
-    return resultado;
-
-
   }
 
+  incrementar(): void {
+    if (this.produto && this.qtdSelecionada < this.produto.quantidade) {
+      this.qtdSelecionada++;
+    }
+  }
 
+  decrementar(): void {
+    if (this.qtdSelecionada > 1) {
+      this.qtdSelecionada--;
+    }
+  }
+
+  adicionarAoCarrinho(): void {
+    if (!this.produto) return;
+
+    // Ativa a animação no botão
+    this.adicionadoComSucesso = true;
+
+    // Reseta a animação após 2.5 segundos
+    setTimeout(() => {
+      this.adicionadoComSucesso = false;
+    }, 2500);
+  }
 }
