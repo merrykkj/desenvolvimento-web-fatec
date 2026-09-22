@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AuthService, UsuarioMock } from './services/auth';
+import { CarrinhoService } from './services/carrinho';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +18,18 @@ export class App implements OnInit {
   isMenuOpen = false;
   
   usuario$: Observable<UsuarioMock | null>;
-  qtdCarrinho: number = 2;
   exibirHeaderFooter = true;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public carrinhoService: CarrinhoService 
   ) {
     this.usuario$ = this.authService.usuario$;
+  }
+
+  get qtdCarrinho(): number {
+    return this.carrinhoService.obterQuantidadeTotal();
   }
 
   ngOnInit(): void {

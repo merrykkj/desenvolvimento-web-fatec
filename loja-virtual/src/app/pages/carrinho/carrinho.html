@@ -1,48 +1,89 @@
-<main class="min-h-screen bg-rose-50/30 py-12 px-4 sm:px-6 lg:px-8 mt-16">
-  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-pink-100 p-6 sm:p-10">
-    <h1 class="text-2xl font-serif font-bold text-stone-800 mb-6">Seu Carrinho de Compras</h1>
+<main class="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 w-full">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-stone-200 mt-10">
+      <a routerLink="/catalogo" class="inline-flex items-center gap-2 text-xs font-bold text-stone-500 hover:text-pink-600 uppercase tracking-widest transition-colors">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Continuar Comprando</span>
+      </a>
 
-    <div *ngIf="carrinhoService.obterItens().length > 0; else carrinhoVazio">
-      <div class="flex flex-col divide-y divide-pink-100">
-        <div *ngFor="let item of carrinhoService.obterItens()" class="py-4 flex items-center justify-between gap-4">
-          <div class="flex items-center gap-4">
-            <img [src]="item.produto.codigo + '.png'" [alt]="item.produto.nome" class="w-16 h-16 object-contain bg-stone-50 rounded-xl p-2 border border-pink-100">
-            <div>
-              <h3 class="text-sm font-bold text-stone-800">{{ item.produto.nome }}</h3>
-              <p class="text-xs text-stone-500">Qtd: {{ item.quantidade }}</p>
+      <nav class="flex items-center gap-2 text-xs font-medium text-stone-500 overflow-x-auto whitespace-nowrap">
+        <a routerLink="/" class="hover:text-pink-600 transition-colors">Início</a>
+        <i class="fa-solid fa-chevron-right text-[10px] text-stone-300"></i>
+        <span class="text-stone-900 font-semibold">Carrinho de Compras</span>
+      </nav>
+    </div>
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 flex items-center gap-3">
+        <i class="fa-solid fa-bag-shopping text-pink-600 text-2xl"></i> Carrinho de Compras
+      </h1>
+      <p class="text-stone-500 text-sm mt-1">Reveja os seus itens selecionados antes de avançar para o pagamento.</p>
+    </div>
+
+    <div *ngIf="carrinhoService.obterItens().length > 0; else carrinhoVazio" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <div class="lg:col-span-8 bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 mb-4 pb-2 border-b border-stone-100">Itens Adicionados</h2>
+        
+        <div class="flex flex-col divide-y divide-stone-100">
+          <div *ngFor="let item of carrinhoService.obterItens()" class="py-4 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <img [src]="item.produto.codigo + '.png'" [alt]="item.produto.nome" class="w-20 h-20 object-contain bg-stone-50 rounded-xl p-2 border border-stone-100">
+              <div>
+                <h3 class="text-sm font-bold text-stone-900">{{ item.produto.nome }}</h3>
+                <p class="text-xs text-stone-500 mt-1">Quantidade: <span class="font-bold text-stone-700">{{ item.quantidade }}</span></p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+              <span class="text-base font-extrabold text-pink-600">
+                {{ (item.produto.valorPromo > 0 ? item.produto.valorPromo : item.produto.valor) * item.quantidade | currency:'BRL' }}
+              </span>
+              <button (click)="carrinhoService.removerItem(item.produto.codigo)" class="text-stone-400 hover:text-red-500 transition cursor-pointer p-2" title="Remover item">
+                <i class="fa-solid fa-trash text-sm"></i>
+              </button>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="flex items-center gap-6">
-            <span class="text-sm font-bold text-pink-600">
-              {{ (item.produto.valorPromo > 0 ? item.produto.valorPromo : item.produto.valor) * item.quantidade | currency:'BRL' }}
-            </span>
-            <button (click)="carrinhoService.removerItem(item.produto.codigo)" class="text-stone-400 hover:text-red-500 transition">
-              <i class="fa-solid fa-trash text-sm"></i>
-            </button>
+      <div class="lg:col-span-4 bg-white rounded-2xl border border-stone-200 p-6 shadow-sm space-y-6">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100">Resumo do Pedido</h2>
+        
+        <div class="space-y-3 text-sm text-stone-600">
+          <div class="flex justify-between">
+            <span>Subtotal</span>
+            <span class="font-semibold text-stone-900">{{ carrinhoService.obterTotal() | currency:'BRL' }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Entrega</span>
+            <span class="font-semibold text-emerald-600">Calculado no checkout</span>
           </div>
         </div>
-      </div>
 
-      <div class="border-t border-pink-100 mt-6 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div>
+        <div class="border-t border-stone-200 pt-4 flex justify-between items-center">
           <span class="text-xs font-bold uppercase tracking-wider text-stone-500">Total a pagar:</span>
-          <p class="text-3xl font-extrabold text-pink-600">{{ carrinhoService.obterTotal() | currency:'BRL' }}</p>
+          <span class="text-2xl font-extrabold text-pink-600">{{ carrinhoService.obterTotal() | currency:'BRL' }}</span>
         </div>
 
-        <button class="w-full sm:w-auto bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-8 rounded-2xl shadow-lg shadow-pink-500/25 active:scale-[0.98] transition">
-          Finalizar Pedido
+        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md shadow-pink-600/10 transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+          <span>Finalizar Pedido</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
         </button>
       </div>
+
     </div>
 
     <ng-template #carrinhoVazio>
-      <div class="text-center py-12">
-        <p class="text-stone-500 text-sm mb-4">Seu carrinho está vazio no momento.</p>
-        <a routerLink="/catalogo" class="bg-pink-600 text-white font-semibold py-2.5 px-6 rounded-xl text-xs hover:bg-pink-700 transition">
-          Explorar Flores
+      <div class="bg-white rounded-2xl border border-stone-200 p-12 text-center shadow-sm max-w-2xl mx-auto my-8">
+        <i class="fa-solid fa-basket-shopping text-6xl text-pink-300 mb-4"></i>
+        <h2 class="text-xl font-bold text-stone-800 mb-2">O seu carrinho está vazio</h2>
+        <p class="text-stone-500 text-sm mb-6">Parece que ainda não adicionou nenhuma flor ou arranjo ao seu carrinho.</p>
+        <a routerLink="/catalogo" class="inline-flex items-center gap-2 bg-pink-600 text-white font-bold py-3 px-8 rounded-xl text-xs hover:bg-pink-700 transition shadow-md shadow-pink-600/20">
+          <i class="fa-solid fa-store text-xs"></i> Explorar Catálogo
         </a>
       </div>
     </ng-template>
+
   </div>
 </main>

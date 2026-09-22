@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Produto } from '../../model/produto'; // Ajuste o caminho se necessário
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Produto } from '../../model/produto'; 
+import { CarrinhoService } from '../../services/carrinho'; 
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-detalhe-produto',
@@ -14,7 +16,7 @@ export class DetalheProduto implements OnInit {
 
   produto?: Produto;
   qtdSelecionada: number = 1;
-  adicionadoComSucesso: boolean = false; // Controle da animação
+  adicionadoComSucesso: boolean = false; 
 
   listaProdutos: Produto[] = [
     { "codigo": 1, "nome": "Buquê de 12 Rosas Vermelhas", "descritivo": "Clássico buquê de rosas vermelhas selecionadas com embalagem especial e laço de cetim.", "valor": 149.90, "valorPromo": 129.90, "quantidade": 15, "destaque": 1 },
@@ -28,7 +30,7 @@ export class DetalheProduto implements OnInit {
     { "codigo": 9, "nome": "Vaso de Tulipas Amarelas", "descritivo": "Tulipas importadas em vaso elegante, perfeitas para presentear com sofisticação.", "valor": 135.00, "valorPromo": 0, "quantidade": 7, "destaque": 0 },
     { "codigo": 10, "nome": "Terrário Fechado no Pote de Vidro", "descritivo": "Mini ecossistema autossustentável com musgos e pequenas plantas tropicais.", "valor": 75.00, "valorPromo": 65.00, "quantidade": 10, "destaque": 0 },
     { "codigo": 11, "nome": "Buquê de Rosas Cor-de-Rosa", "descritivo": "Buquê delicado com 10 rosas cor-de-rosa e acabamento com mosquitinho.", "valor": 125.00, "valorPromo": 109.90, "quantidade": 14, "destaque": 0 },
-    { "codigo": 12, "nome": "Planta Jiboia em Cuia Suspensa", "descritivo": "Planta pendente com folhagens densas e variações de verde, perfeita para prateleiras.", "valor": 55.00, "valorPromo": 0, "quantidade": 25, "destaque": 0 },
+    { "codigo": 12, "nome": "Planta Jiboia em Cuia Suspensa", "descritivo": "Planta pendente com folhagens densas e variações de verde, excelente para prateleiras.", "valor": 55.00, "valorPromo": 0, "quantidade": 25, "destaque": 0 },
     { "codigo": 13, "nome": "Arranjo de Flores do Campo na Caneca", "descritivo": "Lindo mini arranjo montado em uma caneca de cerâmica colecionável.", "valor": 49.90, "valorPromo": 39.90, "quantidade": 30, "destaque": 0 },
     { "codigo": 14, "nome": "Cacto Mandacaru em Vaso de Barro", "descritivo": "Espécie nativa e icônica de fácil manutenção e crescimento ereto.", "valor": 60.00, "valorPromo": 0, "quantidade": 15, "destaque": 0 },
     { "codigo": 15, "nome": "Orquídea Chuva de Ouro", "descritivo": "Vaso de orquídea Oncidium com pequenas flores amarelas que lembram borboletas.", "valor": 115.00, "valorPromo": 99.90, "quantidade": 9, "destaque": 0 },
@@ -39,7 +41,12 @@ export class DetalheProduto implements OnInit {
     { "codigo": 20, "nome": "Cesta Café da Manhã com Flores", "descritivo": "Cesta completa com pães, frutas, suco e um pequeno buquê de flores da estação.", "valor": 250.00, "valorPromo": 219.90, "quantidade": 5, "destaque": 1 }
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private carrinhoService: CarrinhoService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     const codigoParam = this.route.snapshot.paramMap.get('codigo');
@@ -64,10 +71,22 @@ export class DetalheProduto implements OnInit {
   adicionarAoCarrinho(): void {
     if (!this.produto) return;
 
-    // Ativa a animação no botão
+    const usuarioLogado = this.authService.usuario$ ? this.authService.usuario$ : null;
+    
+    let temUsuario = false;
+    this.authService.usuario$.subscribe(user => {
+      temUsuario = !!user;
+    }).unsubscribe();
+
+    if (!temUsuario) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    this.carrinhoService.adicionar(this.produto, this.qtdSelecionada);
+
     this.adicionadoComSucesso = true;
 
-    // Reseta a animação após 2.5 segundos
     setTimeout(() => {
       this.adicionadoComSucesso = false;
     }, 2500);
