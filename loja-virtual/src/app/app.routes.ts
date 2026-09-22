@@ -18,6 +18,10 @@ export const routes: Routes = [
     path: 'carrinho',
     loadComponent: () => import('./pages/carrinho/carrinho').then(m => m.Carrinho)
   },
+  {
+    path: 'finalizar-pedido',
+    loadComponent: () => import('./pages/finalizar-pedido/finalizar-pedido').then(m => m.FinalizarPedido)
+  },
   { path: "", component: Home },
 
 ];

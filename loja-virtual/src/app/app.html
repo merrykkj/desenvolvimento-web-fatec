@@ -13,23 +13,35 @@
             </h1>
         </div>
 
-        <button (click)="toggleMenu()" aria-label="Abrir menu"
-            class="sm:hidden text-pink-600 focus:outline-none p-2 rounded-md hover:bg-pink-100/50 transition">
-            <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"></i>
-        </button>
+        <div class="flex items-center gap-3 sm:hidden">
+            <!-- Carrinho no mobile visível apenas se o usuário estiver logado -->
+            <ng-container *ngIf="(usuario$ | async)">
+                <a routerLink="/carrinho" aria-label="Ver Carrinho"
+                    class="relative text-gray-700 hover:text-pink-600 transition-colors p-1">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span *ngIf="carrinhoService.obterQuantidadeTotal() > 0"
+                        class="absolute -top-1.5 -right-2 bg-pink-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">
+                        {{ carrinhoService.obterQuantidadeTotal() }}
+                    </span>
+                </a>
+            </ng-container>
+
+            <button (click)="toggleMenu()" aria-label="Abrir menu"
+                class="text-pink-600 focus:outline-none p-2 rounded-md hover:bg-pink-100/50 transition">
+                <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"></i>
+            </button>
+        </div>
 
         <div class="hidden sm:flex w-full items-center justify-center relative mt-2">
             <nav>
                 <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase text-gray-700">
-                    <li><a routerLink="/" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
+                    <li><a routerLink="/" fragment="home" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
                     <li><a routerLink="/" fragment="sobre"
                             class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
                     <li><a routerLink="/" fragment="contato"
                             class="hover:text-pink-600 transition-colors duration-300">Contato</a></li>
                     <li><a routerLink="/catalogo"
                             class="hover:text-pink-600 transition-colors duration-300">Catálogo</a></li>
-
-
                 </ul>
             </nav>
 
@@ -63,7 +75,7 @@
                     <a routerLink="/login"
                         class="bg-pink-500 text-white rounded-md py-1 px-7 hover:text-pink-500 hover:bg-white transition transform duration-300 hover:scale-105 hover:shadow-2xl shadow-pink-500 hover:border hover:border-pink-400">Login</a>
                     <a routerLink="/cadastro"
-                        class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-white hover:bg-pink-500 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
+                        class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-white hover:bg-pink-50 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
                 </div>
             </ng-template>
         </div>
@@ -75,10 +87,14 @@
         <ng-container *ngIf="(usuario$ | async) as usuario; else menuMobileDeslogado">
             <nav>
                 <ul class="flex flex-col gap-4 text-center text-sm font-medium tracking-wide uppercase text-gray-700">
-                    <li><a routerLink="/" (click)="closeMenu()"
+                    <li><a routerLink="/" fragment="home" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
                     <li><a routerLink="/catalogo" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
+                    <li><a routerLink="/" fragment="sobre"
+                            class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
+                    <li><a routerLink="/" fragment="contato"
+                            class="hover:text-pink-600 transition-colors duration-300">Contato</a></li>
                     <li>
                         <a routerLink="/carrinho" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">
@@ -106,8 +122,12 @@
         <ng-template #menuMobileDeslogado>
             <nav>
                 <ul class="flex flex-col gap-4 text-center text-sm font-medium tracking-wide uppercase text-gray-700">
-                    <li><a routerLink="/" (click)="closeMenu()"
+                    <li><a routerLink="/" fragment="home" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
+                    <li><a routerLink="/" fragment="sobre"
+                            class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
+                    <li><a routerLink="/" fragment="contato"
+                            class="hover:text-pink-600 transition-colors duration-300">Contato</a></li>
                     <li><a routerLink="/catalogo" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
                 </ul>

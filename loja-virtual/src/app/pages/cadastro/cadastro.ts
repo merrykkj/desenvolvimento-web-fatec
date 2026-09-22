@@ -8,6 +8,5 @@ import { RouterLink } from '@angular/router';
   selector: 'app-cadastro',
   styleUrl: './cadastro.css',
   templateUrl: './cadastro.html',
-  
 })
 export class Cadastro {}

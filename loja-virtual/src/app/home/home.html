@@ -1,142 +1,181 @@
-<section id="home" class="relative min-h-screen flex items-center pt-24 px-6 md:px-16 overflow-x-hidden">
-    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1744994338318-7897026294df?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_100%)]">
+<section id="home"
+    class="relative min-h-screen flex items-center pt-28 pb-16 px-4 sm:px-6 md:px-16 overflow-x-hidden bg-pink-50/50">
+    <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1744994338318-7897026294df?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-30 mask-[radial-gradient(ellipse_at_center,black_40%,transparent_100%)]">
     </div>
-    <div class="relative z-10 max-w-xl text-left">
-        <h1 class="text-4xl md:text-6xl font-serif font-bold text-pink-950 uppercase tracking-tight leading-tight">
-            PURA <br>ESSÊNCIA
+    <div
+        class="absolute inset-0 bg-linear-to-r from-[#fff7fb]/90 sm:from-[#fff7fb]/80 via-[#fff7fb]/40 to-transparent pointer-events-none">
+    </div>
+
+    <div class="relative z-10 w-full max-w-2xl text-left space-y-6">
+        <div
+            class="inline-flex items-center gap-2 rounded-full bg-[#FFF0F3] border border-pink-200/80 px-4 py-1.5 shadow-sm">
+            <i class="fa-solid fa-seedling text-xs text-pink-600" aria-hidden="true"></i>
+            <span
+                class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-pink-700">Flores
+                frescas que transformam momentos</span>
+        </div>
+
+        <h1
+            class="text-4xl sm:text-5xl md:text-7xl font-serif font-extrabold text-pink-950 uppercase tracking-tight leading-[1.1]">
+            PURA <br>
+            <span class="text-pink-600">ESSÊNCIA</span>
         </h1>
 
-        <p class="text-sm md:text-base font-semibold text-pink-700 block mt-2 tracking-widest uppercase">
-            Flores frescas que transformam momentos
-        </p>
-
-        <p class="py-4 text-gray-700 leading-relaxed font-serif text-sm md:text-base">
+        <p class="text-gray-700 leading-relaxed font-serif text-sm sm:text-base md:text-lg max-w-lg">
             Flores frescas selecionadas diariamente para trazer mais cor, aroma e vida aos seus momentos especiais.
             Descubra nossas coleções exclusivas.
         </p>
 
-        <a href="/catalogo" class="inline-block bg-pink-500 hover:bg-pink-700 text-white font-semibold rounded-2xl shadow-md shadow-pink-800 py-3 px-8 transition transform hover:scale-105">
-            Compre agora
-        </a>
+        <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+            <a href="/catalogo"
+                class="inline-flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-2xl shadow-lg shadow-pink-500/25 py-3.5 px-8 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-center">
+                Compre agora
+            </a>
+            <a href="#sobre"
+                class="inline-flex items-center justify-center bg-white/80 hover:bg-white text-pink-950 border border-pink-200 font-semibold rounded-2xl shadow-sm py-3.5 px-6 transition-all duration-300 hover:border-pink-300 text-center">
+                Nossa história
+            </a>
+        </div>
+
+        <div
+            class="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 border-t border-pink-100/80">
+            <div class="flex -space-x-2">
+                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop"
+                    alt="Cliente">
+                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop"
+                    alt="Cliente">
+                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop"
+                    alt="Cliente">
+            </div>
+            <div>
+                <div class="flex text-amber-400 text-xs gap-0.5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs font-medium text-gray-600 mt-0.5">+1.500 momentos inesquecíveis entregues com amor</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<nav aria-label="Categorias de flores" class="py-20">
-    <ul class="flex flex-wrap justify-center gap-8">
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c1.png" alt="Flores Anuais" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">Annual Flower</span>
-            </a>
-        </li>
+<section id="beneficios" class="mx-auto my-12 sm:my-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div
+            class="flex items-center gap-4 bg-linear-to-br from-[#FFF0F3] to-pink-50 p-6 rounded-3xl border border-pink-100 shadow-sm">
+            <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-500 text-white shadow-md shadow-pink-500/20">
+                <i class="fa-solid fa-award text-lg"></i>
+            </div>
+            <div>
+                <h3 class="text-sm font-bold text-pink-950 uppercase tracking-wider">Qualidade Premium</h3>
+                <p class="text-xs text-gray-600 mt-0.5">Flores selecionadas diretamente dos melhores produtores.</p>
+            </div>
+        </div>
 
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c2.png" alt="Flores Perenes" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">Perennial Flower</span>
-            </a>
-        </li>
+        <div
+            class="flex items-center gap-4 bg-linear-to-br from-[#FFF0F3] to-pink-50 p-6 rounded-3xl border border-pink-100 shadow-sm">
+            <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-500 text-white shadow-md shadow-pink-500/20">
+                <i class="fa-solid fa-clock-rotate-left text-lg"></i>
+            </div>
+            <div>
+                <h3 class="text-sm font-bold text-pink-950 uppercase tracking-wider">Frescor Garantido</h3>
+                <p class="text-xs text-gray-600 mt-0.5">Durabilidade prolongada com técnicas especiais de conservação.
+                </p>
+            </div>
+        </div>
 
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c3.png" alt="Flores Bienais" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">Biennial Flower</span>
-            </a>
-        </li>
+        <div
+            class="flex items-center gap-4 bg-linear-to-br from-[#FFF0F3] to-pink-50 p-6 rounded-3xl border border-pink-100 shadow-sm sm:col-span-2 md:col-span-1">
+            <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-500 text-white shadow-md shadow-pink-500/20">
+                <i class="fa-solid fa-headset text-lg"></i>
+            </div>
+            <div>
+                <h3 class="text-sm font-bold text-pink-950 uppercase tracking-wider">Atendimento Dedicado</h3>
+                <p class="text-xs text-gray-600 mt-0.5">Suporte personalizado para ajudar em todas as ocasiões.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c4.png" alt="Rosas" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">Rose Flower</span>
-            </a>
-        </li>
+<section id="sobre"
+    class="mx-auto my-12 sm:my-20 flex w-full max-w-7xl flex-col items-center justify-between gap-12 rounded-4xl sm:rounded-[2.5rem] bg-linear-to-br from-[#FFF0F3] to-pink-100/50 px-6 sm:px-8 py-10 sm:py-16 md:flex-row md:px-16 md:py-20 shadow-2xl shadow-pink-900/5 border border-pink-200/60">
+    <div class="flex flex-col space-y-6 w-full md:w-1/2">
+        <div
+            class="inline-flex items-center gap-2 self-start rounded-full bg-white/80 border border-pink-200 px-3.5 py-1 shadow-sm">
+            <i class="fa-solid fa-heart text-xs text-pink-600"></i>
+            <span class="text-xs font-bold uppercase tracking-wider text-pink-700">Nossa Essência</span>
+        </div>
 
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c5.png" alt="Girassóis" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">SunFlower</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#" class="flex flex-col items-center cursor-pointer group">
-                <div class="w-24 h-24 bg-pink-50 border border-pink-200 rounded-full flex items-center justify-center p-3 transition duration-200 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-pink-300">
-                    <img src="./c6.png" alt="Hortênsias" class="w-12 h-12 object-contain" />
-                </div>
-                <span class="mt-3 text-sm font-bold text-gray-800">Hydrangea</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-
-<section id="sobre" class="mx-auto my-16 flex w-full max-w-7xl flex-col items-center justify-between gap-10 rounded-3xl bg-[#FFF0F3] px-8 py-10 shadow-xl md:flex-row md:px-14 md:py-14">
-    <div class="flex flex-col space-y-5 md:w-1/2">
-        <p class="text-sm font-semibold uppercase tracking-wider text-pink-700">Nossa Essência</p>
-
-        <h2 class="text-4xl font-extrabold tracking-tight text-pink-950 md:text-5xl">
-            Sobre Nós
+        <h2
+            class="text-3xl sm:text-4xl font-serif font-extrabold tracking-tight text-pink-950 md:text-5xl leading-tight">
+            Amor em cada pétala, <span class="text-pink-600">arte em cada detalhe.</span>
         </h2>
 
-        <p class="leading-relaxed text-pink-900/80 md:text-lg">
+        <p class="leading-relaxed text-pink-900/80 text-base md:text-lg font-light">
             Na <strong class="font-semibold text-pink-950">Secret Garden</strong>, acreditamos que flores não são apenas
-            presentes, mas mensageiras de sentimentos puros. Nossa jornada começou com o propósito de espalhar cor,
-            perfume e vida pelos momentos mais marcantes da sua história.
+            presentes, mas mensageiras de sentimentos profundos. Nossa jornada nasceu para colorir os instantes mais
+            marcantes da sua vida.
         </p>
 
-        <p class="leading-relaxed text-pink-900/80">
-            Cada arranjo é desenhado de forma artesanal, combinando frescor rigoroso com um olhar artístico e
-            contemporâneo. Cuidamos desde a escolha do produtor até o laço final, garantindo que o amor chegue
-            intacto ao seu destino.
+        <p class="leading-relaxed text-pink-900/80 text-sm md:text-base font-light">
+            Cada arranjo é composto de forma exclusiva e artesanal, unindo o frescor rigoroso do campo com um design
+            contemporâneo e sofisticado. Cuidamos de tudo, do produtor até o laço final, para que sua surpresa chegue
+            perfeita.
         </p>
 
-        <ul class="grid grid-cols-2 gap-4 border-t border-pink-200/80 pt-6">
-            <li class="flex items-center gap-3">
-                <i class="fa-solid fa-seedling text-lg text-pink-600" aria-hidden="true"></i>
-                <span class="text-sm font-medium text-pink-950">100% Artesanal</span>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-pink-200/80 pt-6">
+            <li class="flex items-center gap-3 bg-white/60 p-3.5 rounded-2xl border border-pink-100">
+                <div
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pink-500 text-white shadow-md shadow-pink-500/20">
+                    <i class="fa-solid fa-seedling text-base" aria-hidden="true"></i>
+                </div>
+                <span class="text-xs font-bold text-pink-950">100% Artesanal & Fresco</span>
             </li>
-
-            <li class="flex items-center gap-3">
-                <i class="fa-solid fa-truck text-lg text-pink-600" aria-hidden="true"></i>
-                <span class="text-sm font-medium text-pink-950">Entrega no Mesmo Dia</span>
+            <li class="flex items-center gap-3 bg-white/60 p-3.5 rounded-2xl border border-pink-100">
+                <div
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-pink-500 text-white shadow-md shadow-pink-500/20">
+                    <i class="fa-solid fa-truck-fast text-base" aria-hidden="true"></i>
+                </div>
+                <span class="text-xs font-bold text-pink-950">Entrega no Mesmo Dia</span>
             </li>
         </ul>
     </div>
 
     <figure class="relative w-full md:w-1/2">
-        <div class="absolute -left-3 -top-3 h-full w-full rounded-2xl bg-pink-200/60"></div>
+        <div
+            class="absolute -left-2 sm:-left-4 -top-2 sm:-top-4 h-full w-full rounded-3xl bg-linear-to-tr from-pink-300/40 to-rose-200/60 transform rotate-1">
+        </div>
         <img src="https://plus.unsplash.com/premium_photo-1677005708723-c0dabb815e4b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Florista criando um arranjo de flores delicado"
-            class="relative z-10 w-full rounded-2xl object-cover shadow-lg transition-transform duration-500 hover:scale-[1.02] md:aspect-square">
+            class="relative z-10 w-full rounded-3xl object-cover shadow-2xl transition-transform duration-700 hover:scale-[1.02] aspect-4/3 md:aspect-square">
     </figure>
 </section>
 
-<section id="como-funciona" class="mx-auto my-20 max-w-7xl px-4 sm:px-6 lg:px-8">
+<section id="como-funciona" class="mx-auto my-16 sm:my-20 max-w-7xl px-4 sm:px-6 lg:px-8">
     <header class="mb-12 text-center">
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-pink-600">
             Passo a Passo
         </p>
-        <h2 class="mt-2 text-3xl font-extrabold text-gray-900 md:text-4xl">
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-gray-900 md:text-4xl">
             Como Funciona
         </h2>
-        <p class="mx-auto mt-2 max-w-md text-sm text-gray-600">
+        <p class="mx-auto mt-2 max-w-md text-sm text-gray-600 px-4">
             Do pedido até a entrega, cuidamos de cada detalhe com carinho.
         </p>
     </header>
 
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <article class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
-            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
-                <i class="fa-solid fa-[#E5386B] fa-seedling text-2xl" aria-hidden="true"></i>
+        <article
+            class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div
+                class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+                <i class="fa-solid fa-seedling text-2xl" aria-hidden="true"></i>
             </div>
             <span class="mb-1 text-xs font-bold uppercase tracking-wider text-pink-600">Passo 01</span>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Escolha o Arranjo</h3>
@@ -145,8 +184,10 @@
             </p>
         </article>
 
-        <article class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
-            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+        <article
+            class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div
+                class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
                 <i class="fa-solid fa-handshake-simple text-2xl" aria-hidden="true"></i>
             </div>
             <span class="mb-1 text-xs font-bold uppercase tracking-wider text-pink-600">Passo 02</span>
@@ -156,8 +197,10 @@
             </p>
         </article>
 
-        <article class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
-            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+        <article
+            class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div
+                class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
                 <i class="fa-solid fa-wand-magic-sparkles text-2xl" aria-hidden="true"></i>
             </div>
             <span class="mb-1 text-xs font-bold uppercase tracking-wider text-pink-600">Passo 03</span>
@@ -167,8 +210,10 @@
             </p>
         </article>
 
-        <article class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
-            <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
+        <article
+            class="group relative flex flex-col items-center rounded-3xl border border-pink-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-pink-200 hover:shadow-xl">
+            <div
+                class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF0F3] text-pink-600 shadow-inner transition-colors duration-300 group-hover:bg-[#E5386B] group-hover:text-white">
                 <i class="fa-solid fa-truck text-2xl" aria-hidden="true"></i>
             </div>
             <span class="mb-1 text-xs font-bold uppercase tracking-wider text-pink-600">Passo 04</span>
@@ -180,72 +225,79 @@
     </div>
 </section>
 
-<section id="contato" class="mx-auto my-20 max-w-7xl px-4 sm:px-6 lg:px-8">
-    <header class="mb-12 text-center">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-pink-600">
+<section id="contato" class="mx-auto my-16 sm:my-24 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="mb-12 sm:mb-16 text-center space-y-3">
+        <span
+            class="inline-flex items-center gap-2 rounded-full bg-[#FFF0F3] border border-pink-200 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-pink-700">
             Fale Conosco
-        </p>
-        <h2 class="mt-2 text-3xl font-extrabold text-pink-950 md:text-4xl">
-            Entre em Contato
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-extrabold text-pink-950 md:text-5xl px-2">
+            Estamos Prontos para Atender Você
         </h2>
-        <p class="mx-auto mt-2 max-w-md text-sm text-gray-600">
-            Tem alguma dúvida ou precisa de um arranjo personalizado? Envie uma mensagem para nós!
+        <p class="mx-auto max-w-md text-sm sm:text-base text-gray-600 font-light px-4">
+            Tem dúvidas, deseja um arranjo sob medida para eventos ou quer surpreender agora? Fale conosco!
         </p>
     </header>
 
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
-        <div class="flex flex-col justify-between rounded-3xl bg-[#FFF0F3] p-8 shadow-sm lg:col-span-5 lg:p-10">
+    <div class="grid grid-cols-1 gap-8 lg:gap-12 lg:grid-cols-12">
+        <div
+            class="flex flex-col justify-between rounded-4xl sm:rounded-[2.5rem] bg-linear-to-br from-[#FFF0F3] to-pink-100/40 p-6 sm:p-8 shadow-xl shadow-pink-900/5 lg:col-span-5 lg:p-12 border border-pink-200/60">
             <div>
-                <h3 class="text-2xl font-bold text-pink-950">Informações de Contato</h3>
-                <p class="mt-2 text-sm text-pink-900/80">
-                    Estamos prontos para atender você com todo o carinho e atenção que seu momento merece.
+                <h3 class="text-xl sm:text-2xl font-serif font-bold text-pink-950">Canais de Atendimento</h3>
+                <p class="mt-2 text-sm text-pink-900/80 font-light">
+                    Nossa equipe atende com todo o carinho e dedicação que o seu momento especial merece.
                 </p>
 
                 <address class="mt-8 not-italic space-y-6">
                     <div class="flex items-start gap-4">
-                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-sm">
-                            <i class="fa-solid fa-location-dot text-xl" aria-hidden="true"></i>
+                        <div
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5">
+                            <i class="fa-solid fa-location-dot text-lg" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h4 class="text-sm font-semibold text-pink-950">Endereço</h4>
-                            <p class="text-xs text-pink-900/80 mt-1">
+                            <h4 class="text-sm font-bold text-pink-950">Endereço</h4>
+                            <p class="text-xs text-pink-900/80 mt-1 leading-relaxed">
                                 Rua das Flores, 123 - Jardim Primavera<br>São Paulo - SP
                             </p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-sm">
-                            <i class="fa-solid fa-phone text-xl" aria-hidden="true"></i>
+                        <div
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5">
+                            <i class="fa-solid fa-phone text-lg" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h4 class="text-sm font-semibold text-pink-950">Telefone / WhatsApp</h4>
+                            <h4 class="text-sm font-bold text-pink-950">Telefone / WhatsApp</h4>
                             <p class="text-xs text-pink-900/80 mt-1">
-                                <a href="tel:+5511999998888" class="hover:underline">(11) 99999-8888</a> / 
+                                <a href="tel:+5511999998888" class="hover:underline font-semibold">(11) 99999-8888</a> /
                                 <a href="tel:+551133334444" class="hover:underline">(11) 3333-4444</a>
                             </p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-sm">
-                            <i class="fa-solid fa-envelope text-xl" aria-hidden="true"></i>
+                        <div
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5">
+                            <i class="fa-solid fa-envelope text-lg" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h4 class="text-sm font-semibold text-pink-950">E-mail</h4>
-                            <p class="text-xs text-pink-900/80 mt-1">
-                                <a href="mailto:contato@secretgarden.com.br" class="hover:underline">contato@secretgarden.com.br</a>
+                            <h4 class="text-sm font-bold text-pink-950">E-mail</h4>
+                            <p class="text-xs text-pink-900/80 mt-1 break-all">
+                                <a href="mailto:contato@secretgarden.com.br"
+                                    class="hover:underline">contato@secretgarden.com.br</a>
                             </p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-sm">
-                            <i class="fa-solid fa-clock text-xl" aria-hidden="true"></i>
+                        <div
+                            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5">
+                            <i class="fa-solid fa-clock text-lg" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h4 class="text-sm font-semibold text-pink-950">Horário de Atendimento</h4>
-                            <p class="text-xs text-pink-900/80 mt-1">
+                            <h4 class="text-sm font-bold text-pink-950">Horário de Funcionamento</h4>
+                            <p class="text-xs text-pink-900/80 mt-1 leading-relaxed">
                                 Seg - Sáb: 08:00 às 18:00<br>Dom: 09:00 às 13:00
                             </p>
                         </div>
@@ -253,55 +305,65 @@
                 </address>
             </div>
 
-            <nav aria-label="Redes sociais" class="mt-8 border-t border-pink-200/80 pt-6">
-                <span class="text-xs font-semibold uppercase tracking-wider text-pink-950 block mb-3">Siga nossas redes</span>
+            <nav aria-label="Redes sociais" class="mt-10 border-t border-pink-200/80 pt-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-pink-950 block mb-3">Acompanhe nosso jardim
+                    digital</span>
                 <ul class="flex gap-3">
                     <li>
-                        <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-pink-600 shadow-sm transition hover:bg-pink-600 hover:text-white">
-                            <i class="fa-brands fa-instagram text-lg" aria-hidden="true"></i>
+                        <a href="#" aria-label="Instagram"
+                            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5 transition-all hover:bg-pink-600 hover:text-white hover:scale-105">
+                            <i class="fa-brands fa-instagram text-xl" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-pink-600 shadow-sm transition hover:bg-pink-600 hover:text-white">
-                            <i class="fa-brands fa-facebook text-lg" aria-hidden="true"></i>
+                        <a href="#" aria-label="Facebook"
+                            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5 transition-all hover:bg-pink-600 hover:text-white hover:scale-105">
+                            <i class="fa-brands fa-facebook text-xl" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="WhatsApp" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-pink-600 shadow-sm transition hover:bg-pink-600 hover:text-white">
-                            <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i>
+                        <a href="#" aria-label="WhatsApp"
+                            class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-pink-600 shadow-md shadow-pink-500/5 transition-all hover:bg-pink-600 hover:text-white hover:scale-105">
+                            <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <div class="rounded-3xl border border-pink-100 bg-white p-8 shadow-xl lg:col-span-7 lg:p-10">
+        <div
+            class="rounded-4xl sm:rounded-[2.5rem] border border-pink-100 bg-white p-6 sm:p-8 shadow-2xl shadow-pink-900/5 lg:col-span-7 lg:p-12 flex flex-col justify-center">
             <form action="#" method="POST" class="space-y-6">
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                        <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Seu Nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required
-                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/30 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+                        <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Seu
+                            Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required
+                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/20 px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-4 focus:ring-pink-100">
                     </div>
 
                     <div>
-                        <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Seu E-mail</label>
+                        <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Seu
+                            E-mail</label>
                         <input type="email" id="email" name="email" placeholder="seu@email.com" required
-                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/30 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/20 px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-4 focus:ring-pink-100">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                        <label for="telefone" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Telefone / WhatsApp</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/30 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+                        <label for="telefone"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-700">Telefone /
+                            WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999"
+                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/20 px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-4 focus:ring-pink-100">
                     </div>
 
                     <div>
-                        <label for="assunto" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Assunto</label>
+                        <label for="assunto"
+                            class="block text-xs font-bold uppercase tracking-wider text-gray-700">Assunto</label>
                         <select id="assunto" name="assunto"
-                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/30 px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+                            class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/20 px-4 py-3.5 text-sm text-gray-700 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-4 focus:ring-pink-100">
                             <option value="duvida">Dúvidas Gerais</option>
                             <option value="encomenda">Encomenda Especial</option>
                             <option value="eventos">Casamentos & Eventos</option>
@@ -311,13 +373,15 @@
                 </div>
 
                 <div>
-                    <label for="mensagem" class="block text-xs font-bold uppercase tracking-wider text-gray-700">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos te ajudar?" required
-                        class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/30 px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 resize-none"></textarea>
+                    <label for="mensagem"
+                        class="block text-xs font-bold uppercase tracking-wider text-gray-700">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"
+                        placeholder="Como podemos ajudar a tornar o dia de alguém especial?" required
+                        class="mt-2 w-full rounded-2xl border border-pink-100 bg-pink-50/20 px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition focus:border-pink-500 focus:bg-white focus:ring-4 focus:ring-pink-100 resize-none"></textarea>
                 </div>
 
                 <button type="submit"
-                    class="w-full rounded-2xl bg-pink-500 py-3.5 px-8 font-semibold text-white shadow-md shadow-pink-800/30 transition transform hover:bg-pink-600 hover:scale-[1.01] active:scale-95">
+                    class="w-full rounded-2xl bg-pink-500 hover:bg-pink-600 text-white py-4 px-8 font-semibold shadow-lg shadow-pink-500/25 transition-all duration-300 hover:shadow-xl hover:scale-[1.01] active:scale-95 cursor-pointer text-center">
                     Enviar Mensagem
                 </button>
             </form>
