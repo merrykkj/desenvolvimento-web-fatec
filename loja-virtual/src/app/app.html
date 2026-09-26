@@ -1,9 +1,9 @@
 <header *ngIf="exibirHeaderFooter" id="main-header" [ngClass]="isScrolled ? 'bg-white shadow-2xl' : 'bg-transparent'"
     class="top-0 left-0 w-full z-50 backdrop-blur-md transition-all duration-300 fixed px-4 sm:px-8 py-4">
 
-    <div class="max-w-6xl mx-auto flex items-center justify-between sm:flex-col sm:gap-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between lg:flex-col lg:gap-4">
 
-        <div class="text-left sm:text-center">
+        <div class="text-left lg:text-center">
             <h1 class="text-gray-900 text-2xl sm:text-3xl font-light tracking-wide">
                 Secret
                 <a routerLink="/"
@@ -13,8 +13,7 @@
             </h1>
         </div>
 
-        <div class="flex items-center gap-3 sm:hidden">
-            <!-- Carrinho no mobile visível apenas se o usuário estiver logado -->
+        <div class="flex items-center gap-3 lg:hidden">
             <ng-container *ngIf="(usuario$ | async)">
                 <a routerLink="/carrinho" aria-label="Ver Carrinho"
                     class="relative text-gray-700 hover:text-pink-600 transition-colors p-1">
@@ -32,7 +31,7 @@
             </button>
         </div>
 
-        <div class="hidden sm:flex w-full items-center justify-center relative mt-2">
+        <div class="hidden lg:flex w-full items-center justify-center relative mt-2">
             <nav>
                 <ul class="flex gap-8 text-sm font-medium tracking-wide uppercase text-gray-700">
                     <li><a routerLink="/" fragment="home" class="hover:text-pink-600 transition-colors duration-300">Home</a></li>
@@ -55,17 +54,29 @@
                             {{ carrinhoService.obterQuantidadeTotal() }}
                         </span>
                     </a>
-                    <div class="flex items-center gap-2 border-l border-pink-200 pl-4">
-                        <div
-                            class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 border border-pink-300 font-bold flex items-center justify-center text-xs shadow-sm">
-                            {{ usuario.nome.charAt(0) }}
+                    
+                    <div class="relative group border-l border-pink-200 pl-4">
+                        <div class="flex items-center gap-2 cursor-pointer py-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 border border-pink-300 font-bold flex items-center justify-center text-xs shadow-sm">
+                                {{ usuario.nome.charAt(0) }}
+                            </div>
+                            <span class="text-xs font-bold text-gray-800">{{ usuario.nome }}</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] text-gray-500 transition-transform group-hover:rotate-180"></i>
                         </div>
-                        <span class="text-xs font-bold text-gray-800">{{ usuario.nome }}</span>
 
-                        <button (click)="logout()" title="Sair da conta"
-                            class="text-gray-400 hover:text-rose-600 transition text-sm ml-1 cursor-pointer">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </button>
+                        <div class="absolute right-0 top-full pt-2 w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="bg-white rounded-xl border border-stone-200 shadow-xl p-1.5 space-y-1">
+                                <a routerLink="/meus-pedidos"
+                                    class="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-stone-700 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition">
+                                    <i class="fa-solid fa-box text-pink-600"></i> Meus Pedidos
+                                </a>
+                                <button (click)="logout()"
+                                    class="w-full text-left flex items-center gap-2 px-3 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-lg transition cursor-pointer">
+                                    <i class="fa-solid fa-right-from-bracket"></i> Sair da conta
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ng-container>
@@ -75,14 +86,14 @@
                     <a routerLink="/login"
                         class="bg-pink-500 text-white rounded-md py-1 px-7 hover:text-pink-500 hover:bg-white transition transform duration-300 hover:scale-105 hover:shadow-2xl shadow-pink-500 hover:border hover:border-pink-400">Login</a>
                     <a routerLink="/cadastro"
-                        class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-white hover:bg-pink-50 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
+                        class="bg-white text-pink-500 rounded-md py-1 px-7 hover:text-pink-500 hover:bg-pink-50 transition transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500 border border-pink-400">Cadastro</a>
                 </div>
             </ng-template>
         </div>
     </div>
 
     <div *ngIf="isMenuOpen"
-        class="sm:hidden bg-white/95 backdrop-blur-md rounded-2xl mt-4 p-6 shadow-xl border border-pink-100 flex flex-col gap-6 animate-fadeIn">
+        class="lg:hidden bg-white/95 backdrop-blur-md rounded-2xl mt-4 p-6 shadow-xl border border-pink-100 flex flex-col gap-6 animate-fadeIn">
 
         <ng-container *ngIf="(usuario$ | async) as usuario; else menuMobileDeslogado">
             <nav>
@@ -91,6 +102,8 @@
                             class="hover:text-pink-600 transition-colors block py-1">Home</a></li>
                     <li><a routerLink="/catalogo" (click)="closeMenu()"
                             class="hover:text-pink-600 transition-colors block py-1">Catálogo</a></li>
+                    <li><a routerLink="/meus-pedidos" (click)="closeMenu()"
+                            class="hover:text-pink-600 transition-colors block py-1">Meus Pedidos</a></li>
                     <li><a routerLink="/" fragment="sobre"
                             class="hover:text-pink-600 transition-colors duration-300">Sobre</a></li>
                     <li><a routerLink="/" fragment="contato"
@@ -113,7 +126,7 @@
                     <span class="text-sm font-bold text-gray-800">{{ usuario.nome }}</span>
                 </div>
                 <button (click)="logout()"
-                    class="text-xs font-semibold text-rose-600 hover:underline flex items-center gap-1 mt-1">
+                    class="text-xs font-semibold text-rose-600 hover:underline flex items-center gap-1 mt-1 cursor-pointer">
                     <i class="fa-solid fa-right-from-bracket"></i> Sair da conta
                 </button>
             </div>

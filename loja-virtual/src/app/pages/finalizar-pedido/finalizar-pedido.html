@@ -1,28 +1,21 @@
 <main class="min-h-screen pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 w-full bg-stone-50/40">
     <div class="max-w-6xl mx-auto">
 
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8 pb-4 border-b border-stone-200">
+        <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8 pb-4 border-b border-stone-200">
             <a routerLink="/carrinho"
                 class="inline-flex items-center gap-2 text-xs font-bold text-stone-500 hover:text-pink-600 uppercase tracking-widest transition-colors">
                 <i class="fa-solid fa-arrow-left text-sm"></i>
                 <span>Voltar ao Carrinho</span>
             </a>
-
-            <nav
-                class="flex items-center gap-2 text-xs font-medium text-stone-500 overflow-x-auto whitespace-nowrap max-w-full pb-1 sm:pb-0 mt-6">
-                <a routerLink="/" class="hover:text-pink-600 transition-colors">Início</a>
-                <i class="fa-solid fa-chevron-right text-[10px] text-stone-300"></i>
-                <a routerLink="/carrinho" class="hover:text-pink-600 transition-colors">Carrinho</a>
-                <i class="fa-solid fa-chevron-right text-[10px] text-stone-300"></i>
-                <span class="text-stone-900 font-semibold truncate">Finalizar Pedido</span>
-            </nav>
         </div>
 
         <div class="mb-6 sm:mb-8">
             <h1 class="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-stone-900 flex items-center gap-3">
                 <i class="fa-solid fa-credit-card text-pink-600 text-lg sm:text-2xl shrink-0"></i> Finalização de Compra
             </h1>
-            <p class="text-stone-500 text-xs sm:text-sm mt-1">Preencha os seus dados de entrega e pagamento para concluir o pedido.</p>
+            <p class="text-stone-500 text-xs sm:text-sm mt-1">Confirme seus dados para concluir a apresentação do
+                pedido.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
@@ -30,23 +23,21 @@
             <div class="lg:col-span-7 space-y-6">
 
                 <div class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-4">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-user text-pink-600"></i> 1. Dados Pessoais
+                    <h2
+                        class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-user text-pink-600"></i> 1. Dados Básicos
                     </h2>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Nome Completo</label>
+                            <label
+                                class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Nome</label>
                             <input type="text" [(ngModel)]="dadosPedido.nome" placeholder="Ex: Maria Silva"
                                 class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">E-mail</label>
-                            <input type="email" [(ngModel)]="dadosPedido.email" placeholder="exemplo@email.com"
-                                class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Telefone / WhatsApp</label>
+                            <label
+                                class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Telefone</label>
                             <input type="text" [(ngModel)]="dadosPedido.telefone" placeholder="(00) 00000-0000"
                                 class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
                         </div>
@@ -54,33 +45,21 @@
                 </div>
 
                 <div class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-4">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-location-dot text-pink-600"></i> 2. Endereço de Entrega
+                    <h2
+                        class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-pink-600"></i> 2. Endereço
                     </h2>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">CEP</label>
-                            <input type="text" [(ngModel)]="dadosPedido.cep" placeholder="00000-000"
-                                class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
-                        </div>
                         <div class="sm:col-span-2">
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Endereço (Rua, Avenida)</label>
-                            <input type="text" [(ngModel)]="dadosPedido.endereco" placeholder="Ex: Rua das Flores"
+                            <label
+                                class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Endereço</label>
+                            <input type="text" [(ngModel)]="dadosPedido.endereco" placeholder="Ex: Rua das Flores, 123"
                                 class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Número</label>
-                            <input type="text" [(ngModel)]="dadosPedido.numero" placeholder="Ex: 123"
-                                class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Bairro</label>
-                            <input type="text" [(ngModel)]="dadosPedido.bairro" placeholder="Ex: Jardim Botânico"
-                                class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Cidade / UF</label>
+                            <label
+                                class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Cidade</label>
                             <input type="text" [(ngModel)]="dadosPedido.cidade" placeholder="Ex: São Paulo - SP"
                                 class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:border-pink-500 transition-all">
                         </div>
@@ -88,8 +67,9 @@
                 </div>
 
                 <div class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-4">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-wallet text-pink-600"></i> 3. Forma de Pagamento
+                    <h2
+                        class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-wallet text-pink-600"></i> 3. Pagamento
                     </h2>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -114,47 +94,28 @@
                             Boleto
                         </button>
                     </div>
-
-                    <div *ngIf="dadosPedido.pagamento === 'cartao'"
-                        class="mt-4 pt-4 border-t border-stone-100 space-y-3">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Número do Cartão</label>
-                            <input type="text" placeholder="0000 0000 0000 0000"
-                                class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs text-stone-800">
-                        </div>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">Validade</label>
-                                <input type="text" placeholder="MM/AA"
-                                    class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs text-stone-800">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">CVV</label>
-                                <input type="text" placeholder="123"
-                                    class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs text-stone-800">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
 
             <div class="lg:col-span-5 bg-white rounded-2xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-6">
-                <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100">Resumo do Pedido</h2>
+                <h2 class="text-xs font-bold uppercase tracking-wider text-stone-400 pb-2 border-b border-stone-100">
+                    Resumo do Pedido</h2>
 
-                <div class="flex flex-col max-h-60 overflow-y-auto divide-y divide-stone-100 pr-1">
+                <div class="flex flex-col max-h-48 overflow-y-auto divide-y divide-stone-100 pr-1">
                     <div *ngFor="let item of carrinhoService.obterItens()"
                         class="py-3 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3 min-w-0">
                             <img [src]="item.produto.codigo + '.png'" [alt]="item.produto.nome"
-                                class="w-12 h-12 object-contain bg-stone-50 rounded-lg p-1 border border-stone-100 shrink-0">
+                                class="w-10 h-10 object-contain bg-stone-50 rounded-lg p-1 border border-stone-100 shrink-0">
                             <div class="min-w-0">
                                 <p class="text-xs font-bold text-stone-900 truncate">{{ item.produto.nome }}</p>
                                 <p class="text-[11px] text-stone-500">Qtd: {{ item.quantidade }}</p>
                             </div>
                         </div>
                         <span class="text-xs font-bold text-stone-800 shrink-0">
-                            {{ (item.produto.valorPromo > 0 ? item.produto.valorPromo : item.produto.valor) * item.quantidade | currency:'BRL' }}
+                            {{ (item.produto.valorPromo > 0 ? item.produto.valorPromo : item.produto.valor) *
+                            item.quantidade | currency:'BRL' }}
                         </span>
                     </div>
                 </div>
@@ -162,10 +123,11 @@
                 <div class="space-y-3 text-sm text-stone-600 pt-3 border-t border-stone-200">
                     <div class="flex justify-between text-xs">
                         <span>Subtotal</span>
-                        <span class="font-semibold text-stone-900">{{ carrinhoService.obterTotal() | currency:'BRL' }}</span>
+                        <span class="font-semibold text-stone-900">{{ carrinhoService.obterTotal() | currency:'BRL'
+                            }}</span>
                     </div>
                     <div class="flex justify-between text-xs">
-                        <span>Taxa de Entrega (Expressa)</span>
+                        <span>Entrega</span>
                         <span class="font-semibold text-stone-900">R$ 15,00</span>
                     </div>
                     <div *ngIf="dadosPedido.pagamento === 'pix'"
@@ -192,25 +154,32 @@
         </div>
 
     </div>
-    <div *ngIf="pedidoConcluido" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-xs transition-all">
-        <div class="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 max-w-md w-full shadow-2xl text-center space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            
-            <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
+
+    <div *ngIf="pedidoConcluido"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-xs transition-all">
+        <div
+            class="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 max-w-md w-full shadow-2xl text-center space-y-5">
+            <div
+                class="w-16 h-16 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-inner">
                 <i class="fa-solid fa-check"></i>
             </div>
-
             <div class="space-y-2">
                 <h3 class="text-xl font-serif font-bold text-stone-900">Pedido Realizado com Sucesso!</h3>
                 <p class="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                    Agradecemos a preferência pela <span class="font-semibold text-stone-700">Secret Garden</span>. O seu pedido já está a ser preparado com todo o carinho.
+                    Agradecemos a preferência pela <span class="font-semibold text-stone-700">Secret Garden</span>.
                 </p>
             </div>
+            <div class="space-y-2 pt-2">
+                <a routerLink="/meus-pedidos"
+                    class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wider">
+                    <i class="fa-solid fa-bag-shopping"></i> Ver Meus Pedidos
+                </a>
 
-            <button (click)="fecharModalEVoltar()"
-                class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl shadow-md shadow-pink-600/10 transition duration-200 cursor-pointer text-xs sm:text-sm uppercase tracking-wider">
-                Voltar ao Catálogo
-            </button>
-
+                <button (click)="fecharModalEVoltar()"
+                    class="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold py-3 px-6 rounded-xl transition duration-200 cursor-pointer text-xs sm:text-sm uppercase tracking-wider">
+                    Voltar ao Catálogo
+                </button>
+            </div>
         </div>
     </div>
 </main>

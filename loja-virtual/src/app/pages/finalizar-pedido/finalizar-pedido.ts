@@ -45,23 +45,24 @@ export class FinalizarPedido {
   }
 
   finalizarCompra() {
-    if (!this.dadosPedido.nome || !this.dadosPedido.endereco || !this.dadosPedido.telefone) {
-      alert('Por favor, preencha os campos obrigatórios de identificação e entrega.');
-      return;
-    }
+    const novoPedido = {
+      id: Math.floor(100000 + Math.random() * 900000), 
+      data: new Date().toLocaleDateString('pt-BR'),
+      itens: this.carrinhoService.obterItens(),
+      totalFinal: this.calcularTotalFinal(),
+      pagamento: this.dadosPedido.pagamento,
+      status: 'Em andamento'
+    };
 
-    if (this.carrinhoService.obterItens().length === 0) {
-      alert('O seu carrinho está vazio!');
-      this.router.navigate(['/catalogo']);
-      return;
-    }
-    if (typeof this.carrinhoService.limparCarrinho === 'function') {
-      this.carrinhoService.limparCarrinho();
-    }
+    const pedidosSalvos = JSON.parse(localStorage.getItem('meus_pedidos') || '[]');
+    pedidosSalvos.unshift(novoPedido); 
+    localStorage.setItem('meus_pedidos', JSON.stringify(pedidosSalvos));
 
+
+    this.carrinhoService.limparCarrinho();
     this.pedidoConcluido = true;
-  }
 
+  }
   fecharModalEVoltar() {
     this.router.navigate(['/catalogo']);
   }
